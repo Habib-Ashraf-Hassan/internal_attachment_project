@@ -1,3 +1,9 @@
-.body-home{
-    background: url(../images/Madrassa3.jpg);
+.body-home {
+    background: url(../images/Madrassa1.jpeg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+.black-fill {
+    background: rgba(0, 0, 0, 0.4);
+    min-height: 100vh;
 }
