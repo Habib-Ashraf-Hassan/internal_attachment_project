@@ -38,7 +38,7 @@
       </ul>
       <ul class="navbar-nav me-right mb-2 mb-lg-0">
         <li class="nav-item">
-            <a class="nav-link" href="#">Log in</a>
+            <a class="nav-link" href="login.php">Log in</a>
         </li>
       </ul>
     </div>
@@ -82,13 +82,17 @@
                 <label  class="form-label">Name</label>
                 <input type="text" class="form-control" >
             </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            <div class="mb-3">
+                <label  class="form-label">Message</label>
+                <textarea class="form-control" rows="4"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            
+            <button type="submit" class="btn btn-primary">Send</button>
         </form>
     </section>
+    <div class="text-center text-light">
+        Copyright &copy; 2023 Adan Madrassah. All rights reserved
+    </div>
 
         </div>
     </div>

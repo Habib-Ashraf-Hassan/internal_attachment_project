@@ -42,6 +42,7 @@
 }
 #about .card-1 h5{
     font-family: 'Lobster', cursive;
+    font-size: 30px;
 
 }
 #contact {
@@ -53,4 +54,11 @@
     background: rgba(255, 255, 255, 0.6);
     padding: 15px;
     border-radius: 5px;
+}
+#contact form h3{
+    text-align: center;
+    font-family: 'Lobster', cursive;
+}
+textarea{
+    resize: none;
 }
