@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-.body-home {
+.body-home, .body-login {
     background: url(../images/Madrassa1.jpeg);
     background-size: cover;
     background-attachment: fixed;
@@ -61,4 +61,15 @@
 }
 textarea{
     resize: none;
+}
+.login {
+    max-width: 600px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 5px;
+    border-radius: 10px;
+}
+.login h3{
+    text-align: center;
+    font-size: 50px;
 }
