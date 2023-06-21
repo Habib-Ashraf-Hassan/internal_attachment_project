@@ -6,7 +6,7 @@
     <title>Log in - Adan Madrassah</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="images/Madrassa_logo2.png">
+    <link rel="icon" href="images/Madrassa_logo2.png">  
 </head>
 <body class="body-login">
     <div class="black-fill">
@@ -27,7 +27,7 @@
                 <label class="form-label">Password</label>
                 <input type="password" class="form-control" id="passwd">
             </div>
-
+            
             <div class="mb-3">
                 <label class="form-label">Login As</label>
                 <select class="form-control">
