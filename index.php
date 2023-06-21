@@ -48,7 +48,8 @@
         <img src="images/Madrassa_logo2.png">
         <h4> Welcome to Adan Madrassah</h4>
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod in enim dolorum itaque eum commodi laborum eligendi obcaecati veniam recusandae accusamus dolore iusto vitae, tenetur exercitationem voluptatibus laboriosam. Possimus, blanditiis.
+            "Proper Din is a Proper Akhera(Hereafter)" by Imam Malik.<br>
+            "Knowledge does not come, you have to go for it" by Imam Malik.
         </p>
 
     </section>
@@ -62,7 +63,10 @@
             <div class="col-md-8">
             <div class="card-body">
                 <h5 class="card-title">About Us</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text">
+                    We are a Madrassah(Islamic learning center) located in Eastleigh, Nairobi county, Kenya.We offer quality Islamic studies any
+                    regardless of their age from primary level(fasl) to secondary level(Mutawasit).
+                </p>
                 <p class="card-text"><small class="text-body-secondary">Adan Madrassah</small></p>
             </div>
             </div>
