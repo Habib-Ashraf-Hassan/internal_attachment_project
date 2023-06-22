@@ -20,18 +20,18 @@
             <h3>LOGIN</h3>
             <div class="mb-3">
                 <label class="form-label">Username</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" pattern="[a-zA-Z0-9 ]+" required>
             </div>
             
             <div class="mb-3">
                 <label class="form-label">Password</label>
-                <input type="password" class="form-control" id="passwd">
+                <input type="password" class="form-control" id="passwd" required>
             </div>
             
             <div class="mb-3">
                 <label class="form-label">Login As</label>
                 <select class="form-control">
-                    <option value="1">Admin</option>
+                    <option value="1" selected>Admin</option>
                     <option value="2">Student</option>
                     <option value="3">Maalim(Teacher)</option>
                 </select>
