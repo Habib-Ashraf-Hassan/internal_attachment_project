@@ -18,19 +18,26 @@
                 <img src="images/Madrassa_logo2.png" width="100" height="140">
             </div>
             <h3>LOGIN</h3>
+            <?php 
+                if(isset($_GET['error'])){ ?>
+                <div class="alert alert-danger" role="alert">
+                <?=$_GET['error']?>
+                </div>
+
+             <?php  }  ?>
             <div class="mb-3">
                 <label class="form-label">Username</label>
-                <input type="text" class="form-control" name="uname" pattern="[a-zA-Z0-9 ]+" required>
+                <input type="text" class="form-control" name="uname">
             </div>
             
             <div class="mb-3">
                 <label class="form-label">Password</label>
-                <input type="password" class="form-control" name="pass" required>
+                <input type="password" class="form-control" name="pass">
             </div>
             
             <div class="mb-3">
                 <label class="form-label">Login As</label>
-                <select class="form-control" name="role" required>
+                <select class="form-control" name="role">
                     <option value="1">Admin</option>
                     <option value="2">Student</option>
                     <option value="3">Maalim(Teacher)</option>
