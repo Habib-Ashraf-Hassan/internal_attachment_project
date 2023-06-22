@@ -13,25 +13,25 @@
         <br/>
         <br/>
         <div class="d-flex justify-content-center align-items-center flex-column">
-        <form class="login">
+        <form class="login" method="post" action="req/login.php">
             <div class="text-center">
                 <img src="images/Madrassa_logo2.png" width="100" height="140">
             </div>
             <h3>LOGIN</h3>
             <div class="mb-3">
                 <label class="form-label">Username</label>
-                <input type="text" class="form-control" pattern="[a-zA-Z0-9 ]+" required>
+                <input type="text" class="form-control" name="uname" pattern="[a-zA-Z0-9 ]+" required>
             </div>
             
             <div class="mb-3">
                 <label class="form-label">Password</label>
-                <input type="password" class="form-control" id="passwd" required>
+                <input type="password" class="form-control" name="pass" required>
             </div>
             
             <div class="mb-3">
                 <label class="form-label">Login As</label>
-                <select class="form-control">
-                    <option value="1" selected>Admin</option>
+                <select class="form-control" name="role" required>
+                    <option value="1">Admin</option>
                     <option value="2">Student</option>
                     <option value="3">Maalim(Teacher)</option>
                 </select>
