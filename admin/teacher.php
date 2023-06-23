@@ -33,7 +33,7 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
         
     ?>
     <div class="container mt-5">
-        <a href="" class="btn btn-dark">Add new Teacher(Maalim)</a>
+        <a href="teacher_add.php" class="btn btn-dark">Add new Teacher(Maalim)</a>
 
         <div class="table-responsive">
         <table class="table table-bordered mt-3 n-table">
@@ -92,6 +92,7 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
                     <!-- This is for action  -->
                     <td>
                         <a href="" class="btn btn-warning">Edit</a>
+                        <br>
                         <a href="" class="btn btn-danger">Delete</a>
                     </td>
                     
