@@ -35,9 +35,9 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
         <a href="teacher.php" class="btn btn-dark">Go Back</a>
         
         <form method="post" class="shadow p-3 mt-5 form-w" action="req/teacher_add.php">
-            <!-- <div class="text-center">
+            <div class="text-center">
                 <img src="../images/Madrassa_logo2.png" width="85" height="75">
-            </div> -->
+            </div>
             <h3>Add New Teacher(Maalim)</h3>
             <hr>
             <?php 
