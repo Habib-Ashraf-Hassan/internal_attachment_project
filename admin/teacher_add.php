@@ -7,6 +7,7 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
         include "data/subject.php";
         include "data/grade.php";
         $subjects = getAllSubjects($conn);
+        $grades = getAllGrades($conn);
 
         
         
@@ -91,7 +92,16 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
 
             <div class="mb-3">
                 <label class="form-label">Classes teaching</label>
-                <input type="text" class="form-control" name="fname">
+                <div class="row row-cols-5">
+                    <?php foreach ($grades as $grade): ?>
+
+                <div class="col">
+                <input type="checkbox" name="grades[]" value="<?=$grade['grade_id']?>">
+                <?=$grade['grade_code']?>-<?=$grade['grade']?>
+                </div>
+                <?php endforeach ?>
+                </div>
+                
             </div>
 
             
