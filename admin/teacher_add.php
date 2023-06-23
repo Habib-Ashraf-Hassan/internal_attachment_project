@@ -4,10 +4,11 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
 
     if ($_SESSION['role'] == 'Admin'){
         include "../DB_connection.php";
-        include "data/teacher.php";
         include "data/subject.php";
         include "data/grade.php";
-        $teachers = getAllTeachers($conn);
+        $subjects = getAllSubjects($conn);
+
+        
         
         
         
@@ -71,14 +72,22 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
                     
                 </select>
             </div>
+            <br>
 
             <div class="mb-3">
-                <label class="form-label">Subjects teaching</label>
+                <label class="form-label">Subjects teaching</label><br>
                 <div class="row row-cols-5">
-                <input type="checkbox" class="form-control" name="subject">
-                Quran
+                    <?php foreach ($subjects as $subject): ?>
+
+                <div class="col">
+                <input type="checkbox" name="subject" value="Quran">
+                <?=$subject['subject']?>
                 </div>
+                <?php endforeach ?>
+                </div>
+                
             </div>
+            <br>
 
             <div class="mb-3">
                 <label class="form-label">Classes teaching</label>
