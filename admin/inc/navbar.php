@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index.php">
             <img src="../images/Madrassa_logo2.png" alt="Madrassa logo" width="30">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,11 +10,11 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="navLinks">
 
             <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Dashboard</a>
+            <a class="nav-link" aria-current="page" href="index.php">Dashboard</a>
             </li>
 
             <li class="nav-item">
-            <a class="nav-link" href="#about">Teachers</a>
+            <a class="nav-link" href="teacher.php">Teachers</a>
             </li>
 
             <li class="nav-item">
