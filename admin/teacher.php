@@ -3,7 +3,10 @@ session_start();
 if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
 
     if ($_SESSION['role'] == 'Admin'){
-
+        include "../DB_connection.php";
+        include "data/teacher.php";
+        $teachers = getAllTeachers($conn);
+        
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +23,10 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
 <body>
     <?php
         include "inc/navbar.php";
+
+        if ($teachers != 0){
+
+        
     ?>
     <div class="container mt-5">
         <a href="" class="btn btn-dark">Add new Teacher(Maalim)</a>
@@ -35,21 +42,25 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
                 <th scope="col">Employee No.</th>
                 <th scope="col">Date started</th>
                 <th scope="col">Gender</th>
+                <th scope="col">Subject teaching</th>
                 <th scope="col">Classes teaching</th>
                 <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
+                <?php foreach ($teachers as $teacher){ ?>
 
+                 
                 <tr>
                     <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
+                    <td><?=$teacher['teacher_id'] ?></td>
+                    <td><?=$teacher['fname'] ?></td>
+                    <td><?=$teacher['lname'] ?></td>
+                    <td><?=$teacher['username'] ?></td>
+                    <td><?=$teacher['date_of_employment'] ?></td>
+                    <td><?=$teacher['gender'] ?></td>
+                    <td></td>
+                    <td></td>
                     <!-- This is for action  -->
                     <td>
                         <a href="" class="btn btn-warning">Edit</a>
@@ -57,10 +68,18 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
                     </td>
                     
                 </tr>
+
+                <?php  } ?>
                 
             </tbody>
         </table>
         </div>
+        <?php }else{ ?>
+            <div class="alert alert-info .w-450 m-5" role="alert">
+                Empty!
+            </div>
+
+        <?php }?>
     </div>
     
     
