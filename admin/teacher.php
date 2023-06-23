@@ -22,36 +22,42 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
         include "inc/navbar.php";
     ?>
     <div class="container mt-5">
-        <a href="" class="btn btn-primary">Add new Teacher(Maalim)</a>
+        <a href="" class="btn btn-dark">Add new Teacher(Maalim)</a>
 
         <div class="table-responsive">
         <table class="table table-bordered mt-3 n-table">
             <thead>
                 <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Employee No.</th>
+                <th scope="col">Date started</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Classes teaching</th>
+                <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
+
                 <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
+                    <!-- This is for action  -->
+                    <td>
+                        <a href="" class="btn btn-warning">Edit</a>
+                        <a href="" class="btn btn-danger">Delete</a>
+                    </td>
+                    
                 </tr>
-                <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-                </tr>
+                
             </tbody>
         </table>
         </div>
