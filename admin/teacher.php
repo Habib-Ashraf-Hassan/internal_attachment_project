@@ -6,6 +6,7 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
         include "../DB_connection.php";
         include "data/teacher.php";
         include "data/subject.php";
+        include "data/grade.php";
         $teachers = getAllTeachers($conn);
         
         
@@ -75,7 +76,19 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
                             echo $s;
                         ?>
                     </td>
-                    <td></td>
+                    <td>
+                    <?php
+                            $g = '';
+                            $grades = str_split(trim($teacher['grades']));
+                            
+                            foreach ($grades as $grade){
+                                $g_temp = getGradeById($grade, $conn);
+                                if ($g_temp != 0)
+                                $g .= $g_temp['grade_code'].'-'.$g_temp['grade'].', ';
+                            }
+                            echo $g;
+                        ?>
+                    </td>
                     <!-- This is for action  -->
                     <td>
                         <a href="" class="btn btn-warning">Edit</a>

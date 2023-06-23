@@ -15,7 +15,7 @@ function getAllSubjects($conn){
 
 }
 
-// All Subjects by id
+// Get Subjects by id
 function getSubjectsById($subject_id, $conn){
     $sql = "SELECT * FROM subjects WHERE subject_id =?";
     $stmt = $conn->prepare($sql);
