@@ -5,7 +5,10 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
     if ($_SESSION['role'] == 'Admin'){
         include "../DB_connection.php";
         include "data/teacher.php";
+        include "data/subject.php";
         $teachers = getAllTeachers($conn);
+        
+        
         
 ?>
 <!DOCTYPE html>
@@ -59,7 +62,19 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
                     <td><?=$teacher['username'] ?></td>
                     <td><?=$teacher['date_of_employment'] ?></td>
                     <td><?=$teacher['gender'] ?></td>
-                    <td></td>
+                    <td>
+                        <?php
+                            $s = '';
+                            $subjects = str_split(trim($teacher['subjects']));
+                            
+                            foreach ($subjects as $subject){
+                                $s_temp = getSubjectsById($subject, $conn);
+                                if ($s_temp != 0)
+                                $s .= $s_temp['subject_code'].', ';
+                            }
+                            echo $s;
+                        ?>
+                    </td>
                     <td></td>
                     <!-- This is for action  -->
                     <td>
