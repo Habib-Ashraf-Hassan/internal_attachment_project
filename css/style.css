@@ -76,3 +76,6 @@ textarea{
 .w-450 {
    width: 400px; 
 }
+.n-table{
+    max-width: 800px;
+}
