@@ -34,12 +34,26 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
     <div class="container mt-5">
         <a href="teacher.php" class="btn btn-dark">Go Back</a>
         
-        <form method="post" class="shadow p-3 mt-5 form-w" action="">
+        <form method="post" class="shadow p-3 mt-5 form-w" action="req/teacher_add.php">
             <!-- <div class="text-center">
                 <img src="../images/Madrassa_logo2.png" width="85" height="75">
             </div> -->
             <h3>Add New Teacher(Maalim)</h3>
             <hr>
+            <?php 
+                if(isset($_GET['error'])){ ?>
+                <div class="alert alert-danger" role="alert">
+                <?=$_GET['error']?>
+                </div>
+
+             <?php  }  ?>
+             <?php 
+                if(isset($_GET['success'])){ ?>
+                <div class="alert alert-success" role="alert">
+                <?=$_GET['success']?>
+                </div>
+
+             <?php  }  ?>
             
             <div class="mb-3">
                 <label class="form-label">First name</label>
