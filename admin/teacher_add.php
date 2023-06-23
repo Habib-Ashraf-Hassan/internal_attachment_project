@@ -37,11 +37,54 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
                 <img src="../images/Madrassa_logo2.png" width="85" height="75">
             </div> -->
             <h3>Add New Teacher(Maalim)</h3>
+            <hr>
             
             <div class="mb-3">
-                <label class="form-label">Employee/Admission no.</label>
-                <input type="text" class="form-control" name="uname">
+                <label class="form-label">First name</label>
+                <input type="text" class="form-control" name="fname">
             </div>
+
+            <div class="mb-3">
+                <label class="form-label">Last name</label>
+                <input type="text" class="form-control" name="lname">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Employee no.</label>
+                <input type="text" class="form-control" name="username">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <div class="input-group mb-3"></div>
+                <input type="text" class="form-control" 
+                    name="pass" id="passInput">
+                <button class="btn btn-secondary" id="gBtn">Random</button>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Gender</label>
+                
+                <select class="form-control" name="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Subjects teaching</label>
+                <div class="row row-cols-5">
+                <input type="checkbox" class="form-control" name="subject">
+                Quran
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Classes teaching</label>
+                <input type="text" class="form-control" name="fname">
+            </div>
+
             
             
             
@@ -58,7 +101,28 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
     <script>
         $(document).ready(function(){
                $("#navLinks li:nth-child(2) a").addClass('active'); 
-            });
+        
+        });
+
+        function makePassword(length) {
+            var result = '';
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var charactersLength = characters.length;
+            let counter = 0;
+            while (counter < length) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            counter += 1;
+            
+            }
+            var passInput = document.getElementById('passInput');
+            passInput.value = result;
+        }
+        var gBtn = document.getElementById('gBtn');
+        gBtn.addEventListener('click', function(e){
+            e.preventDefault();
+            makePassword(5);
+        });
+
     </script>
 </body>
 </html>
