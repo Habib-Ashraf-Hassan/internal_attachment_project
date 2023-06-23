@@ -80,7 +80,7 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
                     <?php foreach ($subjects as $subject): ?>
 
                 <div class="col">
-                <input type="checkbox" name="subject" value="Quran">
+                <input type="checkbox" name="subjects[]" value="<?=$subject['subject_id']?>">
                 <?=$subject['subject']?>
                 </div>
                 <?php endforeach ?>
