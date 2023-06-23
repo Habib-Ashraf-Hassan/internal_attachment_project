@@ -76,6 +76,10 @@ textarea{
 .w-450 {
    width: 400px; 
 }
-.n-table{
+.n-table {
     max-width: 900px;
+}
+.form-w {
+    max-width: 600px;
+    width: 100%;
 }
