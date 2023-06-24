@@ -26,7 +26,7 @@ if (isset($_SESSION['admin_id']) &&
              <div class="row row-cols-5">
                <a href="teacher.php" 
                   class="col btn btn-dark m-2 py-3">
-                 <i class="fa fa-user-md fs-1" aria-hidden="true"></i><br>
+                 <i class="fa fa-user fs-1" aria-hidden="true"></i><br>
                   Teachers
                </a> 
                <a href="" class="col btn btn-dark m-2 py-3">
