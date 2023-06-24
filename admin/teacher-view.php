@@ -54,7 +54,7 @@ if (isset($_SESSION['admin_id']) &&
             <li class="list-group-item">Gender: <?=$teacher['gender']?></li>
             <li class="list-group-item">Date of joined: <?=$teacher['date_of_joined']?></li>
 
-            <li class="list-group-item">Subject: 
+            <li class="list-group-item">Subjects teaching: 
                 <?php 
                    $s = '';
                    $subjects = str_split(trim($teacher['subjects']));
@@ -66,7 +66,7 @@ if (isset($_SESSION['admin_id']) &&
                    echo $s;
                 ?>
             </li>
-            <li class="list-group-item">Class: 
+            <li class="list-group-item">Classes teaching: 
             <?php 
                            $g = '';
                            $grades = str_split(trim($teacher['grades']));
