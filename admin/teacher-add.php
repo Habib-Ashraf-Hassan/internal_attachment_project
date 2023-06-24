@@ -53,7 +53,7 @@ if (isset($_SESSION['admin_id']) &&
 
         <form method="post"
               class="shadow p-3 mt-5 form-w" 
-              action="req/teacher-add2.php">
+              action="req/teacher-add.php">
         <h3>Add New Teacher</h3><hr>
         <?php if (isset($_GET['error'])) { ?>
           <div class="alert alert-danger" role="alert">
