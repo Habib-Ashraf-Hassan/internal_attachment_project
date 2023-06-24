@@ -17,11 +17,7 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
         if (isset($_GET['lname'])) $lname = $_GET['lname'];
         if (isset($_GET['uname'])) $uname = $_GET['uname'];
 
-
-        
-        
-        
-        
+ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
