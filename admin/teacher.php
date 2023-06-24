@@ -20,7 +20,7 @@ if (isset($_SESSION['admin_id']) &&
 	<title>Admin - Teachers</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
-	<link rel="icon" href="../logo.png">
+	<link rel="icon" href="../images/Madrassa_logo2.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -30,7 +30,7 @@ if (isset($_SESSION['admin_id']) &&
         if ($teachers != 0) {
      ?>
      <div class="container mt-5">
-        <a href="teacher-add.php"
+        <a href="teacher-add2.php"
            class="btn btn-dark">Add New Teacher</a>
 
            <form action="teacher-search.php" 
@@ -71,8 +71,8 @@ if (isset($_SESSION['admin_id']) &&
                     <th scope="col">First Name</th>
                     <th scope="col">Last Name</th>
                     <th scope="col">Username</th>
-                    <th scope="col">Subject</th>
-                    <th scope="col">Class</th>
+                    <th scope="col">Subject teaching</th>
+                    <th scope="col">Class teaching</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>

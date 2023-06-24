@@ -1,6 +1,7 @@
-<?php
+<?php 
 session_start();
-if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
+if (isset($_SESSION['admin_id']) && 
+    isset($_SESSION['role'])) {
 
     if ($_SESSION['role'] == 'Admin'){
         include "../DB_connection.php";
@@ -61,13 +62,13 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
              <?php  }  ?>
             
             <div class="mb-3">
-                <label class="form-label">Full name</label>
+                <label class="form-label">First name</label>
                 <input type="text" class="form-control" name="fname">
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Age</label>
-                <input type="number" class="form-control" name="lname">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-control" name="lname">
             </div>
 
             <div class="mb-3">

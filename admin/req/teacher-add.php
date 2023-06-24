@@ -36,22 +36,22 @@ if (isset($_SESSION['admin_id ']) &&
         }
         else if (empty($lname)){
             $em = "Age name is required";
-            header("Location: ../teacher_add.php?error=$em");
+            header("Location: ../teacher-add.php?error=$em");
             exit;
         }
         else if (empty($pass)){
             $em = "Password is required";
-            header("Location: ../teacher_add.php?error=$em");
+            header("Location: ../teacher-add.php?error=$em");
             exit;
         }
         else if (empty($uname)){
             $em = "Employee no. is required";
-            header("Location: ../teacher_add.php?error=$em");
+            header("Location: ../teacher-add.php?error=$em");
             exit;
         }
         else if (empty($gender)){
             $em = "Gender is required";
-            header("Location: ../teacher_add.php?error=$em");
+            header("Location: ../teacher-add.php?error=$em");
             exit;
         }
         else if (!unameIsUnique($uname, $conn)){
@@ -64,13 +64,13 @@ if (isset($_SESSION['admin_id ']) &&
             $real_pass = $pass;
             $pass = password_hash($pass, PASSWORD_DEFAULT);
 
-            $sql = "INSERT INTO teachers(username, password, real_password,fname, age, gender, subjects, grades)
+            $sql = "INSERT INTO teachers(username, password, fname, lname, gender, subjects, grades)
                     VALUES(?,?,?,?,?,?,?,?)";
             $stmt = $conn->prepare($sql);
             $stmt->execute([$uname, $pass, $real_pass, $fname, $lname, $gender, $subjects, $grades]);
 
             $sm = "New teacher registered successfully :)";
-            header("Location: ../teacher_add.php?success=$sm");
+            header("Location: ../teacher-add.php?success=$sm");
             exit;
         }
         
