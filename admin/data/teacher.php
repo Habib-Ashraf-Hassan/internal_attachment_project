@@ -81,11 +81,11 @@ function searchTeachers($key, $conn){
            OR username LIKE ?
            OR employee_number LIKE ?
            OR phone_number LIKE ?
-           OR qualification LIKE ?
+      
            OR email_address LIKE ?
            OR address LIKE ?";
    $stmt = $conn->prepare($sql);
-   $stmt->execute([$key, $key, $key, $key, $key,$key, $key, $key, $key]);
+   $stmt->execute([$key, $key, $key, $key, $key,$key, $key, $key]);
 
    if ($stmt->rowCount() == 1) {
      $teachers = $stmt->fetchAll();
