@@ -111,7 +111,7 @@ if (isset($_SESSION['admin_id']) &&
                         ?>
                     </td>
                     <td>
-                        <a href="teacher-edit.php?teacher_id=<?=$teacher['teacher_id']?>"
+                        <a href="teacher-edit2.php?teacher_id=<?=$teacher['teacher_id']?>"
                            class="btn btn-warning">Edit</a>
                         <a href="teacher-delete.php?teacher_id=<?=$teacher['teacher_id']?>"
                            class="btn btn-danger">Delete</a>
