@@ -1,17 +1,35 @@
 <?php
 session_start();
-if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
+if (isset($_SESSION['admin_id ']) &&
+    isset($_SESSION['role']) &&
+    isset($_GET['teacher_id'])){
 
     if ($_SESSION['role'] == 'Admin'){
         include "../DB_connection.php";
         include "data/subject.php";
         include "data/grade.php";
+        include "data/teacher.php";
+
         $subjects = getAllSubjects($conn);
         $grades = getAllGrades($conn);
+        $choice = "";
+        $alt_choice = "";
 
-        
-        
-        
+        $teacher_id = $_GET['teacher_id'];
+        $teacher = getTeacherById($teacher_id, $conn);
+
+        if ($teacher == 0){
+            header("Location: teacher.php");
+            exit;
+        }
+        // if ($teacher['gender'] == "Male"){
+        //     $alt_choice = "Female";
+        //     $choice = $teacher['gender'];
+        // }
+        // else{
+        //     $alt_choice = "Male";
+        //     $choice = $teacher['gender'];
+        // }
         
 ?>
 <!DOCTYPE html>
@@ -19,7 +37,7 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Add Teacher</title>
+    <title>Admin - Edit a Teacher</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="../images/Madrassa_logo2.png">
@@ -34,11 +52,11 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
     <div class="container mt-5">
         <a href="teacher.php" class="btn btn-dark">Go Back</a>
         
-        <form method="post" class="shadow p-3 mt-5 form-w" action="req/teacher_add.php">
+        <form method="post" class="shadow p-3 mt-5 form-w" action="req/teacher_edits.php">
             <div class="text-center">
                 <img src="../images/Madrassa_logo2.png" width="85" height="75">
             </div>
-            <h3>Add New Teacher(Maalim)</h3>
+            <h3>Edit a Teacher(Maalim)</h3>
             <hr>
             <?php 
                 if(isset($_GET['error'])){ ?>
@@ -54,36 +72,42 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
                 </div>
 
              <?php  }  ?>
-            
+             <div class="mb-3">
+                <label class="form-label">Id</label>
+                <input type="text" class="form-control"
+                       value="<?=$teacher['teacher_id']?>" name="teacher_id">
+            </div>
+
             <div class="mb-3">
                 <label class="form-label">Full name</label>
-                <input type="text" class="form-control" name="fname">
+                <input type="text" class="form-control"
+                       value="<?=$teacher['fname']?>" name="fname">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Age</label>
-                <input type="number" class="form-control" name="age">
+                <input type="number" class="form-control"
+                    value="<?=$teacher['age']?>" name="age">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Employee no.</label>
-                <input type="text" class="form-control" name="username">
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">Password</label>
-                <div class="input-group mb-3"></div>
                 <input type="text" class="form-control" 
-                    name="pass" id="passInput">
-                <button class="btn btn-secondary" id="gBtn">Random</button>
+                value="<?=$teacher['username']?>" name="username">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Gender</label>
                 
+                <!-- <select class="form-control" name="gender">
+                    <option value="<?=$choice?>" selected><?=$choice?></option>
+                    <option value="<?=$alt_choice?>"><?=$alt_choice?></option>
+                    
+                </select> -->
+
                 <select class="form-control" name="gender">
                     <option value="Male">Male</option>
-                    <option value="Female">Female</option>
+                    <option value="Female>">Female</option>
                     
                 </select>
             </div>
@@ -92,13 +116,24 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
             <div class="mb-3">
                 <label class="form-label">Subjects teaching</label><br>
                 <div class="row row-cols-5">
-                    <?php foreach ($subjects as $subject): ?>
-
-                <div class="col">
-                <input type="checkbox" name="subjects[]" value="<?=$subject['subject_id']?>">
-                <?=$subject['subject']?>
-                </div>
-                <?php endforeach ?>
+                    <?php
+                    $subject_ids = str_split(trim($teacher['subjects']));
+                     foreach ($subjects as $subject){
+                        $checked = 0;
+                        foreach ($subject_ids as $subject_id){
+                            if ($subject_id == $subject['subject_id']){
+                                $checked = 1;
+                            }
+                        }
+                     
+                      ?>
+                        <div class="col">
+                        <input type="checkbox" name="subjects[]" 
+                        <?php if ($checked) echo "checked"; ?>    
+                        value="<?=$subject['subject_id']?>">
+                        <?=$subject['subject']?>
+                        </div>
+                    <?php } ?>
                 </div>
                 
             </div>
@@ -107,13 +142,25 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
             <div class="mb-3">
                 <label class="form-label">Classes teaching</label>
                 <div class="row row-cols-5">
-                    <?php foreach ($grades as $grade): ?>
+                <?php
+                    $grade_ids = str_split(trim($teacher['grades']));
+                     foreach ($grades as $grade){
+                        $checked = 0;
+                        foreach ($grade_ids as $grade_id){
+                            if ($grade_id == $grade['grade_id']){
+                                $checked = 1;
+                            }
+                        }
+                     
+                      ?>
 
                 <div class="col">
-                <input type="checkbox" name="grades[]" value="<?=$grade['grade_id']?>">
+                <input type="checkbox" name="grades[]" 
+                <?php if ($checked) echo "checked"; ?>
+                value="<?=$grade['grade_id']?>">
                 <?=$grade['grade_code']?>-<?=$grade['grade']?>
                 </div>
-                <?php endforeach ?>
+                <?php } ?>
                 </div>
                 
             </div>
@@ -122,9 +169,39 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
             
             
             
-            <button type="submit" class="btn btn-primary">Add</button>
+            <button type="submit" class="btn btn-primary">Update</button>
             
         </form>
+
+        <form method="post" class="shadow p-3 mt-5 form-w" action="">
+        <h3>Change password</h3>
+            <hr>
+            <?php 
+                if(isset($_GET['error'])){ ?>
+                <div class="alert alert-danger" role="alert">
+                <?=$_GET['error']?>
+                </div>
+
+             <?php  }  ?>
+             <?php 
+                if(isset($_GET['success'])){ ?>
+                <div class="alert alert-success" role="alert">
+                <?=$_GET['success']?>
+                </div>
+
+             <?php  }  ?>
+
+            <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <div class="input-group mb-3">
+                    <input type="text" class="form-control" 
+                        name="pass" id="passInput">
+                    <button class="btn btn-secondary" id="gBtn">Random</button>
+                    </div>
+            </div>
+        </form>
+        <button type="submit" class="btn btn-primary">Change</button>
+
         
     </div>
     
@@ -162,12 +239,12 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
 
 <?php
 }else{
-    header("Location: ../login.php");
+    header("Location: teacher.php");
     exit;
 } 
 
 }else{
-    header("Location: ../login.php");
+    header("Location: teacher.php");
     exit;
 }
 
