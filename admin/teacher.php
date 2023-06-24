@@ -35,6 +35,22 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
     <div class="container mt-5">
         <a href="teacher_add.php" class="btn btn-dark">Add new Teacher(Maalim)</a>
 
+        <?php 
+            if(isset($_GET['error'])){ ?>
+                <div class="alert alert-danger mt-3 n-table" role="alert">
+                <?=$_GET['error']?>
+                </div>
+
+        <?php  }  ?>
+
+        <?php 
+            if(isset($_GET['success'])){ ?>
+                <div class="alert alert-info mt-3 n-table" role="alert">
+                <?=$_GET['success']?>
+                </div>
+
+        <?php  }  ?>
+
         <div class="table-responsive">
         <table class="table table-bordered mt-3 n-table">
             <thead>
@@ -91,9 +107,9 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
                     </td>
                     <!-- This is for action  -->
                     <td>
-                        <a href="" class="btn btn-warning">Edit</a>
+                        <a href="teacher_edit.php?teacher_id=<?=$teacher['teacher_id'] ?>" class="btn btn-warning">Edit</a>
                         <br>
-                        <a href="" class="btn btn-danger">Delete</a>
+                        <a href="teacher_delete.php?teacher_id=<?=$teacher['teacher_id'] ?>" class="btn btn-danger">Delete</a>
                     </td>
                     
                 </tr>
