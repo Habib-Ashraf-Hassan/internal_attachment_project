@@ -9,15 +9,6 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
         $subjects = getAllSubjects($conn);
         $grades = getAllGrades($conn);
 
-        $fname = '';
-        $lname = '';
-        $uname = '';
-
-        if (isset($_GET['fname'])) $fname = $_GET['fname'];
-        if (isset($_GET['lname'])) $lname = $_GET['lname'];
-        if (isset($_GET['uname'])) $uname = $_GET['uname'];
-
-
         
         
         
@@ -71,7 +62,7 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
 
             <div class="mb-3">
                 <label class="form-label">Age</label>
-                <input type="number" class="form-control" name="lname">
+                <input type="number" class="form-control" name="age">
             </div>
 
             <div class="mb-3">

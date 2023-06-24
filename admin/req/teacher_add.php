@@ -5,7 +5,7 @@ if (isset($_SESSION['admin_id ']) &&
 
     if ($_SESSION['role'] == 'Admin'){
     if (isset($_POST['fname']) &&
-        isset($_POST['age']) &&
+        isset($_POST['lname']) &&
         isset($_POST['username']) &&
         isset($_POST['pass']) &&
         isset($_POST['gender']) &&
@@ -16,7 +16,7 @@ if (isset($_SESSION['admin_id ']) &&
         include "../data/teacher.php";
 
         $fname = $_POST['fname'];
-        $lname = $_POST['age'];
+        $lname = $_POST['lname'];
         $uname = $_POST['username'];
         $pass = $_POST['pass'];
         $gender = $_POST['gender'];
