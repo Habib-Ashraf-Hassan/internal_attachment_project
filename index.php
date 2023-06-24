@@ -64,7 +64,7 @@ if ($setting != 0) {
 			      <div class="card-body">
 			        <h5 class="card-title">About Us</h5>
 			        <p class="card-text"><?=$setting['about']?></p>
-			        <p class="card-text"><small class="text-muted">Adan Madrassah</small></p>
+			        <p class="card-text"><small class="text-muted">Adan </small></p>
 			      </div>
 			    </div>
 			  </div>
