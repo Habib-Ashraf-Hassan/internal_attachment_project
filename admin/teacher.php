@@ -42,7 +42,7 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
                 <th scope="col">#</th>
                 <th scope="col">ID</th>
                 <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
+                <th scope="col">Age</th>
                 <th scope="col">Employee No.</th>
                 <th scope="col">Date started</th>
                 <th scope="col">Gender</th>
@@ -59,7 +59,7 @@ if (isset($_SESSION['admin_id ']) && isset($_SESSION['role'])){
                     <th scope="row">1</th>
                     <td><?=$teacher['teacher_id'] ?></td>
                     <td><?=$teacher['fname'] ?></td>
-                    <td><?=$teacher['lname'] ?></td>
+                    <td><?=$teacher['age'] ?></td>
                     <td><?=$teacher['username'] ?></td>
                     <td><?=$teacher['date_of_employment'] ?></td>
                     <td><?=$teacher['gender'] ?></td>
