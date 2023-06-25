@@ -66,7 +66,7 @@ if (isset($_SESSION['admin_id']) &&
           </div>
         <?php } ?>
         <div class="mb-3">
-          <label class="form-label">First name</label>
+          <label class="form-label">Full name</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$fname?>" 
@@ -87,7 +87,7 @@ if (isset($_SESSION['admin_id']) &&
                  name="address">
         </div>
         <div class="mb-3">
-          <label class="form-label">Email address</label>
+          <label class="form-label">Student/Parent's Email</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$email?>"

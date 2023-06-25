@@ -96,7 +96,7 @@ if (isset($_POST['fname']) &&
             $subjects = "123456";
         }
         else if ($grade == 8 || $grade == 9){
-            $subjects = "123456";
+            $subjects = "12345678";
         }
         else{
             $subjects = "0";
