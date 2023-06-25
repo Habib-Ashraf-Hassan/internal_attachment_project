@@ -53,7 +53,7 @@ if (isset($_SESSION['admin_id']) &&
                  <i class="fa fa-book fs-1" aria-hidden="true"></i><br>
                   Course
                </a> 
-               <a href="" class="col btn btn-dark m-2 py-3">
+               <a href="message.php" class="col btn btn-dark m-2 py-3">
                  <i class="fa fa-envelope fs-1" aria-hidden="true"></i><br>
                   Message
                </a> 

@@ -42,7 +42,7 @@
             </li>
 
             <li class="nav-item">
-            <a class="nav-link" href="#contact">Message</a>
+            <a class="nav-link" href="message.php">Message</a>
             </li>
 
             <li class="nav-item">
