@@ -30,7 +30,7 @@ if (isset($_SESSION['admin_id']) &&
 	<title>Admin - Edit Registrar Office User</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
-	<link rel="icon" href="../logo.png">
+	<link rel="icon" href="../images/Madrassa_logo2.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -63,13 +63,7 @@ if (isset($_SESSION['admin_id']) &&
                  value="<?=$r_user['fname']?>" 
                  name="fname">
         </div>
-        <div class="mb-3">
-          <label class="form-label">Last name</label>
-          <input type="text" 
-                 class="form-control"
-                 value="<?=$r_user['lname']?>"
-                 name="lname">
-        </div>
+        
         <div class="mb-3">
           <label class="form-label">Username</label>
           <input type="text" 
@@ -78,7 +72,7 @@ if (isset($_SESSION['admin_id']) &&
                  name="username">
         </div>
         <div class="mb-3">
-          <label class="form-label">address</label>
+          <label class="form-label">address/location</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$r_user['address']?>"
@@ -105,16 +99,10 @@ if (isset($_SESSION['admin_id']) &&
                  value="<?=$r_user['phone_number']?>"
                  name="phone_number">
         </div>
+        
         <div class="mb-3">
-          <label class="form-label">Qualification</label>
-          <input type="text" 
-                 class="form-control"
-                 value="<?=$r_user['qualification']?>"
-                 name="qualification">
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Email address</label>
-          <input type="text" 
+          <label class="form-label">Email</label>
+          <input type="email" 
                  class="form-control"
                  value="<?=$r_user['email_address']?>"
                  name="email_address">
@@ -230,11 +218,11 @@ if (isset($_SESSION['admin_id']) &&
 <?php 
 
   }else {
-    header("Location: teacher.php");
+    header("Location: registrar-office.php");
     exit;
   } 
 }else {
-	header("Location: teacher.php");
+	header("Location: registrar-office.php");
 	exit;
 } 
 
