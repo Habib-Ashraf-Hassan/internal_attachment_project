@@ -37,10 +37,6 @@ if (isset($_POST['uname']) &&
         	$sql = "SELECT * FROM students 
         	        WHERE username = ?";
         	$role = "Student";
-        }else if($role == '4'){
-        	$sql = "SELECT * FROM registrar_office 
-        	        WHERE username = ?";
-        	$role = "Registrar Office";
         }
 
         $stmt = $conn->prepare($sql);
