@@ -15,10 +15,10 @@ if (isset($_SESSION['admin_id']) &&
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Admin - Course</title>
+	<title>Admin - Subjects</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
-	<link rel="icon" href="../logo.png">
+	<link rel="icon" href="../images/Madrassa_logo2.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -29,7 +29,7 @@ if (isset($_SESSION['admin_id']) &&
      ?>
      <div class="container mt-5">
         <a href="course-add.php"
-           class="btn btn-dark">Add New Course</a>
+           class="btn btn-dark">Add New Subjects</a>
 
            <?php if (isset($_GET['error'])) { ?>
             <div class="alert alert-danger mt-3 n-table" 
@@ -50,9 +50,9 @@ if (isset($_SESSION['admin_id']) &&
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Course</th>
-                    <th scope="col">Course Code</th>
-                    <th scope="col">Grade</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">course Code</th>
+                    <th scope="col">Classes taught in</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -71,9 +71,17 @@ if (isset($_SESSION['admin_id']) &&
                        ?>
                     </td>
                     <td>
-                      <?php 
-                          $grade = getGradeById($course['grade'], $conn);
-                          echo $grade['grade_code'].'-'.$grade['grade'];
+                      <?php
+                          $g = '';
+                          $grades = str_split(trim($course['grade']));
+                          foreach ($grades as $grade) {
+                             $g_temp = getGradeById($grade, $conn);
+                             if ($g_temp != 0) 
+                               $g .=$g_temp['grade_code'].'-'.$g_temp['grade'].', ';
+                          }
+                          echo $g; 
+                          // $grade = getGradeById($course['grade'], $conn);
+                          // echo $grade['grade_code'].'-'.$grade['grade'];
                        ?>
                     </td>
                     <td>
@@ -99,7 +107,7 @@ if (isset($_SESSION['admin_id']) &&
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
         $(document).ready(function(){
-             $("#navLinks li:nth-child(8) a").addClass('active');
+             $("#navLinks li:nth-child(7) a").addClass('active');
         });
     </script>
 

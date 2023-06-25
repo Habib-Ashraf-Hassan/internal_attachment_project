@@ -45,7 +45,7 @@ if (isset($_SESSION['admin_id']) &&
                  <i class="fa fa-columns fs-1" aria-hidden="true"></i><br>
                   Timetable
                </a> 
-               <a href="" class="col btn btn-dark m-2 py-3">
+               <a href="course.php" class="col btn btn-dark m-2 py-3">
                  <i class="fa fa-book fs-1" aria-hidden="true"></i><br>
                   Subjects
                </a> 

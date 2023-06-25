@@ -25,10 +25,10 @@ if (isset($_SESSION['admin_id']) &&
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Admin - Edit Course</title>
+	<title>Admin - Edit Class</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
-	<link rel="icon" href="../logo.png">
+	<link rel="icon" href="../images/Madrassa_logo2.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -55,37 +55,42 @@ if (isset($_SESSION['admin_id']) &&
           </div>
         <?php } ?>
         <div class="mb-3">
-          <label class="form-label">Course Name</label>
+          <label class="form-label">Subject Name</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$course['subject']?>" 
                  name="course_name">
         </div>
         <div class="mb-3">
-          <label class="form-label">Course Code</label>
+          <label class="form-label">Subject Code</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$course['subject_code']?>" 
                  name="course_code">
         </div>
         <div class="mb-3">
-          <label class="form-label">Grade</label>
-          <select name="grade"
-                  class="form-control" >
-                  <?php foreach ($grades as $grade) { 
-                     $selected = 0;
-                     if ($grade['grade_id'] == $course['grade'] ) {
-                       $selected = 1;
-                     }
-                  ?>
+          <label class="form-label">Classes taught</label>
+          <div class="row row-cols-5">
+                <?php
+                    $grade_ids = str_split(trim($course['grade']));
+                     foreach ($grades as $grade){
+                        $checked = 0;
+                        foreach ($grade_ids as $grade_id){
+                            if ($grade_id == $grade['grade_id']){
+                                $checked = 1;
+                            }
+                        }
+                     
+                    ?>
 
-                    <option  value="<?=$grade['grade_id']?>"
-                          <?php if ($selected) echo "selected"; ?> >
-                       <?=$grade['grade_code'].'-'.$grade['grade']?>
-                    </option> 
-                  <?php } ?>
-                  
-          </select>
+                <div class="col">
+                <input type="checkbox" name="grade[]" 
+                <?php if ($checked) echo "checked"; ?>
+                value="<?=$grade['grade_id']?>">
+                <?=$grade['grade_code']?>-<?=$grade['grade']?>
+                </div>
+                <?php } ?>
+            </div>
         </div>
         <input type="text" 
                  class="form-control"
@@ -101,7 +106,7 @@ if (isset($_SESSION['admin_id']) &&
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
         $(document).ready(function(){
-             $("#navLinks li:nth-child(8) a").addClass('active');
+             $("#navLinks li:nth-child(7) a").addClass('active');
         });
     </script>
 
