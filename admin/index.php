@@ -39,21 +39,17 @@ if (isset($_SESSION['admin_id']) &&
                </a> 
                <a href="" class="col btn btn-dark m-2 py-3">
                  <i class="fa fa-cubes fs-1" aria-hidden="true"></i><br>
-                  Class
-               </a> 
+                  Classes
+               </a>  
                <a href="" class="col btn btn-dark m-2 py-3">
                  <i class="fa fa-columns fs-1" aria-hidden="true"></i><br>
-                  Section
-               </a> 
-               <a href="" class="col btn btn-dark m-2 py-3">
-                 <i class="fa fa-level-up fs-1" aria-hidden="true"></i><br>
-                  Grade
+                  Timetable
                </a> 
                <a href="" class="col btn btn-dark m-2 py-3">
                  <i class="fa fa-book fs-1" aria-hidden="true"></i><br>
-                  Course
+                  Subjects
                </a> 
-               <a href="message.php" class="col btn btn-dark m-2 py-3">
+               <a href="message.php" class="col btn btn-secondary m-2 py-3 col-5">
                  <i class="fa fa-envelope fs-1" aria-hidden="true"></i><br>
                   Message
                </a> 
