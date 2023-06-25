@@ -60,7 +60,7 @@ if (isset($_POST['school_name']) &&
     
   }else {
   	$em = "An error occurred";
-    header("Location: ../section.php?error=$em");
+    header("Location: ../settings.php?error=$em");
     exit;
   }
 
