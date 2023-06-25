@@ -38,6 +38,11 @@ if (isset($_POST['uname']) &&
         	        WHERE username = ?";
         	$role = "Student";
         }
+		else if($role == '4'){
+        	$sql = "SELECT * FROM registrar_office 
+        	        WHERE username = ?";
+        	$role = "Registrar Office";
+        }
 
         $stmt = $conn->prepare($sql);
         $stmt->execute([$uname]);
@@ -65,7 +70,13 @@ if (isset($_POST['uname']) &&
                         $_SESSION['teacher_id'] = $id;
                         header("Location: ../Teacher/index.php");
                         exit;
-                    }else {
+                    }else if($role == 'Registrar Office'){
+                    	$id = $user['r_user_id'];
+                        $_SESSION['r_user_id'] = $id;
+                        header("Location: ../RegistrarOffice/index.php");
+                        exit;
+                    }
+					else {
                     	$em  = "Incorrect Username or Password";
 				        header("Location: ../login.php?error=$em");
 				        exit;
