@@ -4,6 +4,16 @@ if (isset($_SESSION['r_user_id']) &&
     isset($_SESSION['role'])) {
 
     if ($_SESSION['role'] == 'Registrar Office') {
+      include "../DB_connection.php";
+      include "data/teacher.php";
+      include "data/subject.php";
+      include "data/grade.php";
+      include "data/section.php";
+      include "data/class.php";
+
+
+       $teacher_id = $_SESSION['teacher_id'];
+       $teacher = getTeacherById($teacher_id, $conn);
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,40 +28,40 @@ if (isset($_SESSION['r_user_id']) &&
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <?php 
+<?php 
         include "inc/navbar.php";
-    ?>
-     <!-- <div class="container mt-5">
-         <div class="container text-center">
-             <div class="row row-cols-5">
-               <a href="student-add.php" 
-                  class="col btn btn-dark m-2 py-3">
-                 <i class="fa fa-user-plus fs-1" aria-hidden="true"></i><br>
-                  Register Student
-               </a> 
 
-               <a href="student.php" class="col btn btn-dark m-2 py-3">
-                 <i class="fa fa-user fs-1" aria-hidden="true"></i><br>
-                  All Students 
-               </a> 
-               
-               <a href="../logout.php" class="col btn btn-warning m-2 py-3 col-5">
-                 <i class="fa fa-sign-out fs-1" aria-hidden="true"></i><br>
-                  Logout
-               </a> 
-             </div>
-         </div>
-     </div> -->
-     <div class="row">
-        <div class="col-md-6">
-            Left
+        if ($teacher != 0) {
+     ?>
+     <div class="container mt-5">
+         <div class="card" style="width: 22rem;">
+          <img src="../img/teacher-<?=$teacher['gender']?>.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-center">@<?=$teacher['username']?></h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">First name: <?=$teacher['fname']?></li>
+            <li class="list-group-item">Last name: <?=$teacher['lname']?></li>
+            <li class="list-group-item">Username: <?=$teacher['username']?></li>
+
+            <li class="list-group-item">Employee number: <?=$teacher['employee_number']?></li>
+            <li class="list-group-item">Address: <?=$teacher['address']?></li>
+            <li class="list-group-item">Date of birth: <?=$teacher['date_of_birth']?></li>
+            <li class="list-group-item">Phone number: <?=$teacher['phone_number']?></li>
+            <li class="list-group-item">Qualification: <?=$teacher['qualification']?></li>
+            <li class="list-group-item">Email address: <?=$teacher['email_address']?></li>
+            <li class="list-group-item">Gender: <?=$teacher['gender']?></li>
+            <li class="list-group-item">Date of joined: <?=$teacher['date_of_joined']?></li>
+
+          </ul>
         </div>
-            Right
-        <div class="col-md-6">
-          
-        </div>
-    </div>
-    
+     </div>
+     <?php 
+        }else {
+          header("Location: logout.php?error=An error occurred");
+          exit;
+        }
+     ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
         $(document).ready(function(){
