@@ -29,14 +29,30 @@ function getGradeById($grade_id, $conn){
 }
 
 // DELETE
-function removeGrade($id, $conn){
-   $sql  = "DELETE FROM grades
-           WHERE grade_id=?";
-   $stmt = $conn->prepare($sql);
-   $re   = $stmt->execute([$id]);
-   if ($re) {
-     return 1;
-   }else {
+// function removeGrade($id, $conn){
+//    $sql  = "DELETE FROM grades
+//            WHERE grade_id=?";
+//    $stmt = $conn->prepare($sql);
+//    $re   = $stmt->execute([$id]);
+//    if ($re) {
+//      return 1;
+//    }else {
+//     return 0;
+//    }
+// }
+function removeGrade($id, $conn) {
+  $sql = "DELETE FROM grades WHERE grade_id=?";
+  $stmt = $conn->prepare($sql);
+  $re = $stmt->execute([$id]);
+  if ($re) {
+    // Call the renumber_grades stored procedure
+    $re = $conn->exec("CALL renumber_grades()");
+    if ($re !== false) {
+      return 1;
+    } else {
+      return 0;
+    }
+  } else {
     return 0;
-   }
+  }
 }

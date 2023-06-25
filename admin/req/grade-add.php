@@ -29,10 +29,25 @@ if (isset($_POST['grade_code']) &&
                  grades(grade, grade_code)
                  VALUES(?,?)";
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$grade, $grade_code]);
-        $sm = "New Grade created successfully";
-        header("Location: ../grade-add.php?success=$sm");
-        exit;
+        $re = $stmt->execute([$grade, $grade_code]);
+        if ($re) {
+          // Call the renumber_grades stored procedure
+          $re = $conn->exec("CALL renumber_grades()");
+          if ($re !== false) {
+            $sm = "New Class created successfully";
+            header("Location: ../grade-add.php?success=$sm");
+            exit;
+          } else {
+            $em = "An error occurred";
+            header("Location: ../grade-add.php?error=$em");
+            exit;
+          }
+        } else {
+          $em = "An error occurred";
+          header("Location: ../grade-add.php?error=$em");
+          exit;
+        }
+        
 	}
     
   }else {
