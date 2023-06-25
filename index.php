@@ -14,6 +14,7 @@ if ($setting != 0) {
 	<title>Welcome to <?=$setting['school_name']?></title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="icon" href="images/Madrassa_logo2.png">
 </head>
 <body class="body-home">
@@ -98,7 +99,10 @@ if ($setting != 0) {
 			    <label class="form-label">Message</label>
 			    <textarea class="form-control"name="message" rows="4"></textarea>
 			  </div>
-			  <button type="submit" class="btn btn-primary">Send</button>
+			  <button type="submit" class="btn btn-primary">Send</button><br><br>
+			  <span class="contact-span-container">Or if it is very urgent, you can call us via:<br>
+				<i class="fa fa-phone" aria-hidden="true"></i> +254741674466
+			  </span>
 			</form>
         </section>
         <div class="text-center text-light">
