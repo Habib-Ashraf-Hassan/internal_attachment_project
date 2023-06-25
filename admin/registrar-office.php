@@ -27,7 +27,7 @@ if (isset($_SESSION['admin_id']) &&
      ?>
      <div class="container mt-5">
         <a href="registrar-office-add.php"
-           class="btn btn-dark">Add New User</a>
+           class="btn btn-dark">Add New Registrar</a>
 
            <?php if (isset($_GET['error'])) { ?>
             <div class="alert alert-danger mt-3 n-table" 
