@@ -5,15 +5,10 @@ if (isset($_SESSION['r_user_id']) &&
 
     if ($_SESSION['role'] == 'Registrar Office') {
       include "../DB_connection.php";
-      include "data/teacher.php";
-      include "data/subject.php";
-      include "data/grade.php";
-      include "data/section.php";
-      include "data/class.php";
-
-
-       $teacher_id = $_SESSION['teacher_id'];
-       $teacher = getTeacherById($teacher_id, $conn);
+      include "data/registrar_office.php";
+      
+      $r_user_id = $_SESSION['r_user_id'];
+      $teacher = getR_usersById($r_user_id, $conn);
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,29 +28,38 @@ if (isset($_SESSION['r_user_id']) &&
 
         if ($teacher != 0) {
      ?>
-     <div class="container mt-5">
+     
+     <div class="row">
+        <div class="col-md-6">
+        <div class="container mt-5">
          <div class="card" style="width: 22rem;">
-          <img src="../img/teacher-<?=$teacher['gender']?>.png" class="card-img-top" alt="...">
+          
+          <img src="../img/registrar-office-<?=$teacher['gender']?>.jpg" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title text-center">@<?=$teacher['username']?></h5>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">First name: <?=$teacher['fname']?></li>
-            <li class="list-group-item">Last name: <?=$teacher['lname']?></li>
+            <li class="list-group-item">Full name: <?=$teacher['fname']?></li>
+            
             <li class="list-group-item">Username: <?=$teacher['username']?></li>
 
             <li class="list-group-item">Employee number: <?=$teacher['employee_number']?></li>
-            <li class="list-group-item">Address: <?=$teacher['address']?></li>
+            <li class="list-group-item">Home Location/address: <?=$teacher['address']?></li>
             <li class="list-group-item">Date of birth: <?=$teacher['date_of_birth']?></li>
             <li class="list-group-item">Phone number: <?=$teacher['phone_number']?></li>
-            <li class="list-group-item">Qualification: <?=$teacher['qualification']?></li>
-            <li class="list-group-item">Email address: <?=$teacher['email_address']?></li>
+            
+            <li class="list-group-item">Email<?=$teacher['email_address']?></li>
             <li class="list-group-item">Gender: <?=$teacher['gender']?></li>
-            <li class="list-group-item">Date of joined: <?=$teacher['date_of_joined']?></li>
+            <li class="list-group-item">Date: <?=$teacher['date_of_joined']?></li>
 
           </ul>
         </div>
      </div>
+        </div>
+        <div class="col-md-6">
+
+        </div>
+    </div>
      <?php 
         }else {
           header("Location: logout.php?error=An error occurred");
