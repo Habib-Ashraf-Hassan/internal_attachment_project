@@ -71,7 +71,7 @@ if (isset($_SESSION['admin_id']) &&
           <label class="form-label">Last name</label>
           <input type="text" 
                  class="form-control"
-                 value="<?=$teacher['lname']?>"
+                 value="<?=$teacher['national_id']?>"
                  name="lname">
         </div>
         <div class="mb-3">

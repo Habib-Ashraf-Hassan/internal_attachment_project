@@ -91,7 +91,7 @@ if (isset($_POST['fname'])      &&
         exit;
     }else {
         $sql = "UPDATE teachers SET
-                username = ?,grades=?, fname=?, lname=?, subjects=?,
+                username = ?,grades=?, fname=?, national_id=?, subjects=?,
                 address = ?, employee_number=?, date_of_birth = ?, phone_number = ?, gender=?, email_address = ?
                 WHERE teacher_id=?";
         $stmt = $conn->prepare($sql);
