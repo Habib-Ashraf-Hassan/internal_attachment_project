@@ -57,7 +57,7 @@ if (isset($_SESSION['admin_id']) &&
                  <i class="fa fa-envelope fs-1" aria-hidden="true"></i><br>
                   Message
                </a> 
-               <a href="" class="col btn btn-primary m-2 py-3 col-5">
+               <a href="settings.php" class="col btn btn-primary m-2 py-3 col-5">
                  <i class="fa fa-cogs fs-1" aria-hidden="true"></i><br>
                   Settings
                </a> 
