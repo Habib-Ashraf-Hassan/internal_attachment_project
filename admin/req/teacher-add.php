@@ -100,7 +100,7 @@ if (isset($_POST['fname']) &&
         $pass = password_hash($pass, PASSWORD_DEFAULT);
 
         $sql  = "INSERT INTO
-                 teachers(username, password, grades, fname, lname, subjects, address, employee_number, date_of_birth, phone_number,  gender, email_address)
+                 teachers(username, password, grades, fname, national_id, subjects, address, employee_number, date_of_birth, phone_number,  gender, email_address)
                  VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$uname, $pass, $classes, $fname, $lname, $subjects, $address, $employee_number, $date_of_birth, $phone_number, $gender, $email_address]);
@@ -110,7 +110,7 @@ if (isset($_POST['fname']) &&
 	}
     
   }else {
-  	$em = "An error occurred";
+  	$em = "Error! ensure all fields are field in";
     header("Location: ../teacher-add.php?error=$em");
     exit;
   }
