@@ -33,7 +33,7 @@ if (isset($_SESSION['admin_id']) &&
                  <i class="fa fa-graduation-cap fs-1" aria-hidden="true"></i><br>
                   Students
                </a> 
-               <a href="" class="col btn btn-dark m-2 py-3">
+               <a href="registrar-office.php" class="col btn btn-dark m-2 py-3">
                  <i class="fa fa-pencil-square fs-1" aria-hidden="true"></i><br>
                   Registrar Office
                </a> 

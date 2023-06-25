@@ -16,7 +16,7 @@ if (isset($_SESSION['admin_id']) &&
 	<title>Admin - Registrar Office</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
-	<link rel="icon" href="../logo.png">
+	<link rel="icon" href="../images/Madrassa_logo2.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -50,7 +50,7 @@ if (isset($_SESSION['admin_id']) &&
                     <th scope="col">#</th>
                     <th scope="col">ID</th>
                     <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
+                    <th scope="col">Employee No.</th>
                     <th scope="col">Username</th>
                     <th scope="col">Action</th>
                   </tr>
@@ -63,7 +63,7 @@ if (isset($_SESSION['admin_id']) &&
                     <td><?=$r_user['r_user_id']?></td>
                     <td><a href="registrar-office-view.php?r_user_id=<?=$r_user['r_user_id']?>">
                          <?=$r_user['fname']?></a></td>
-                    <td><?=$r_user['lname']?></td>
+                    <td><?=$r_user['employee_number']?></td>
                     <td><?=$r_user['username']?></td>
                     <td>
                         <a href="registrar-office-edit.php?r_user_id=<?=$r_user['r_user_id']?>"
