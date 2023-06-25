@@ -9,21 +9,21 @@ if (isset($_SESSION['admin_id']) &&
 
 
        $fname = '';
-       $lname = '';
+       
        $uname = '';
        $address = '';
        $en = '';
        $pn = '';
-       $qf = '';
+       
        $email = '';
 
        if (isset($_GET['fname'])) $fname = $_GET['fname'];
-       if (isset($_GET['lname'])) $lname = $_GET['lname'];
+       
        if (isset($_GET['uname'])) $uname = $_GET['uname'];
        if (isset($_GET['address'])) $address = $_GET['address'];
        if (isset($_GET['en'])) $en = $_GET['en'];
        if (isset($_GET['pn'])) $pn = $_GET['pn'];
-       if (isset($_GET['qf'])) $qf = $_GET['qf'];
+       
        if (isset($_GET['email'])) $email = $_GET['email'];
  ?>
 <!DOCTYPE html>
@@ -34,7 +34,7 @@ if (isset($_SESSION['admin_id']) &&
 	<title>Admin - Add Registrar Office</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
-	<link rel="icon" href="../logo.png">
+	<link rel="icon" href="../images/Madrassa_logo2.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -61,19 +61,13 @@ if (isset($_SESSION['admin_id']) &&
           </div>
         <?php } ?>
         <div class="mb-3">
-          <label class="form-label">First name</label>
+          <label class="form-label">Full name</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$fname?>" 
                  name="fname">
         </div>
-        <div class="mb-3">
-          <label class="form-label">Last name</label>
-          <input type="text" 
-                 class="form-control"
-                 value="<?=$lname?>"
-                 name="lname">
-        </div>
+        
         <div class="mb-3">
           <label class="form-label">Username</label>
           <input type="text" 
@@ -95,7 +89,7 @@ if (isset($_SESSION['admin_id']) &&
           
         </div>
         <div class="mb-3">
-          <label class="form-label">Address</label>
+          <label class="form-label">Address/Location</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$address?>"
@@ -115,16 +109,10 @@ if (isset($_SESSION['admin_id']) &&
                  value="<?=$pn?>"
                  name="phone_number">
         </div>
-        <div class="mb-3">
-          <label class="form-label">Qualification</label>
-          <input type="text" 
-                 class="form-control"
-                 value="<?=$qf?>"
-                 name="qualification">
-        </div>
+        
         <div class="mb-3">
           <label class="form-label">Email Address</label>
-          <input type="text" 
+          <input type="email" 
                  class="form-control"
                  value="<?=$email?>"
                  name="email_address">
