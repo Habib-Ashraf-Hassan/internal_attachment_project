@@ -26,10 +26,10 @@ if (isset($_SESSION['admin_id']) &&
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Admin - Edit Grade</title>
+	<title>Admin - Edit Class</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
-	<link rel="icon" href="../logo.png">
+	<link rel="icon" href="../images/Madrassa_logo2.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -44,7 +44,7 @@ if (isset($_SESSION['admin_id']) &&
         <form method="post"
               class="shadow p-3 mt-5 form-w" 
               action="req/grade-edit.php">
-        <h3>Edit Grade</h3><hr>
+        <h3>Edit Class</h3><hr>
         <?php if (isset($_GET['error'])) { ?>
           <div class="alert alert-danger" role="alert">
            <?=$_GET['error']?>
@@ -56,14 +56,14 @@ if (isset($_SESSION['admin_id']) &&
           </div>
         <?php } ?>
         <div class="mb-3">
-          <label class="form-label">Grade Code</label>
+          <label class="form-label">Class category</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$grades['grade_code']?>" 
                  name="grade_code">
         </div>
         <div class="mb-3">
-          <label class="form-label">Grade</label>
+          <label class="form-label">Class level</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$grades['grade']?>"
@@ -83,7 +83,7 @@ if (isset($_SESSION['admin_id']) &&
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
         $(document).ready(function(){
-             $("#navLinks li:nth-child(4) a").addClass('active');
+             $("#navLinks li:nth-child(5) a").addClass('active');
         });
     </script>
 

@@ -19,11 +19,11 @@ if (isset($_POST['grade_code']) &&
     $data = 'grade_code='.$grade_code.'&grade='.$grade.'&grade_id='.$grade_id;
 
     if (empty($grade_code)) {
-        $em  = "Grade Code is required";
+        $em  = "Class category is required";
         header("Location: ../grade-edit.php?error=$em&$data");
         exit;
     }else if (empty($grade)) {
-        $em  = "Grade is required";
+        $em  = "Class level is required";
         header("Location: ../grade-edit.php?error=$em&$data");
         exit;
     }else {

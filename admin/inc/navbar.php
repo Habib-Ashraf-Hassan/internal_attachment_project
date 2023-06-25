@@ -26,19 +26,15 @@
             </li>
 
             <li class="nav-item">
-            <a class="nav-link" href="#contact">Class</a>
+            <a class="nav-link" href="grade.php">Classes</a>
             </li>
 
             <li class="nav-item">
-            <a class="nav-link" href="#contact">Section</a>
+            <a class="nav-link" href="#contact">Timetable</a>
             </li>
 
             <li class="nav-item">
-            <a class="nav-link" href="#contact">Schedule</a>
-            </li>
-
-            <li class="nav-item">
-            <a class="nav-link" href="#contact">Course</a>
+            <a class="nav-link" href="#contact">Subjects</a>
             </li>
 
             <li class="nav-item">

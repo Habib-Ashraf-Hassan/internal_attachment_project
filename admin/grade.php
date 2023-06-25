@@ -16,7 +16,7 @@ if (isset($_SESSION['admin_id']) &&
 	<title>Admin - Grade</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
-	<link rel="icon" href="../logo.png">
+	<link rel="icon" href="../images/Madrassa_logo2.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -27,7 +27,7 @@ if (isset($_SESSION['admin_id']) &&
      ?>
      <div class="container mt-5">
         <a href="grade-add.php"
-           class="btn btn-dark">Add New Grade</a>
+           class="btn btn-dark">Add New Class</a>
 
            <?php if (isset($_GET['error'])) { ?>
             <div class="alert alert-danger mt-3 n-table" 
@@ -48,7 +48,7 @@ if (isset($_SESSION['admin_id']) &&
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Grade</th>
+                    <th scope="col">Class</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -84,7 +84,7 @@ if (isset($_SESSION['admin_id']) &&
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
         $(document).ready(function(){
-             $("#navLinks li:nth-child(4) a").addClass('active');
+             $("#navLinks li:nth-child(5) a").addClass('active');
         });
     </script>
 
