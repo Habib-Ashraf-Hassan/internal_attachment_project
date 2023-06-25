@@ -42,7 +42,7 @@ if (isset($_SESSION['admin_id']) &&
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">First name: <?=$teacher['fname']?></li>
-            <li class="list-group-item">Last name: <?=$teacher['lname']?></li>
+            <li class="list-group-item">Last name: <?=$teacher['national_id']?></li>
             <li class="list-group-item">Username: <?=$teacher['username']?></li>
 
             <li class="list-group-item">Employee number: <?=$teacher['employee_number']?></li>

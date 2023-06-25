@@ -77,15 +77,16 @@ function searchTeachers($key, $conn){
    $sql = "SELECT * FROM teachers
            WHERE teacher_id LIKE ? 
            OR fname LIKE ?
-           OR lname LIKE ?
+           OR national_id LIKE ?
            OR username LIKE ?
            OR employee_number LIKE ?
            OR phone_number LIKE ?
+           OR gender LIKE ?
       
            OR email_address LIKE ?
            OR address LIKE ?";
    $stmt = $conn->prepare($sql);
-   $stmt->execute([$key, $key, $key, $key, $key,$key, $key, $key]);
+   $stmt->execute([$key, $key, $key, $key, $key,$key, $key, $key, $key]);
 
    if ($stmt->rowCount() == 1) {
      $teachers = $stmt->fetchAll();
