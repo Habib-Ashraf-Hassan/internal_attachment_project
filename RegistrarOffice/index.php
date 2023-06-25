@@ -65,7 +65,7 @@ if (isset($_SESSION['r_user_id']) &&
                  <i class="fa fa-user-plus fs-1" aria-hidden="true"></i><br>
                   Register Students
                </a> 
-               <a href="" class="col btn btn-dark m-2 py-3 col-5">
+               <a href="teacher.php" class="col btn btn-dark m-2 py-3 col-5">
                  <i class="fa fa-user-plus fs-1" aria-hidden="true"></i><br>
                  Register Teachers
                </a>
