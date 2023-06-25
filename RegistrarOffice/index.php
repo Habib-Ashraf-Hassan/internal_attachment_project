@@ -18,8 +18,10 @@ if (isset($_SESSION['r_user_id']) &&
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
-     <div class="container mt-5">
+    <?php 
+        include "inc/navbar.php";
+    ?>
+     <!-- <div class="container mt-5">
          <div class="container text-center">
              <div class="row row-cols-5">
                <a href="student-add.php" 
@@ -39,7 +41,16 @@ if (isset($_SESSION['r_user_id']) &&
                </a> 
              </div>
          </div>
-     </div>
+     </div> -->
+     <div class="row">
+        <div class="col-md-6">
+            Left
+        </div>
+            Right
+        <div class="col-md-6">
+          
+        </div>
+    </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
