@@ -82,7 +82,6 @@ function searchTeachers($key, $conn){
            OR employee_number LIKE ?
            OR phone_number LIKE ?
            OR gender LIKE ?
-      
            OR email_address LIKE ?
            OR address LIKE ?";
    $stmt = $conn->prepare($sql);
