@@ -57,7 +57,36 @@ if (isset($_SESSION['r_user_id']) &&
      </div>
         </div>
         <div class="col-md-6">
-
+        <div class="container mt-5">
+         <div class="container text-center">
+             <div class="row row-cols-5">
+               <a href="student.php" 
+                  class="col btn btn-dark m-2 py-3 col-5">
+                 <i class="fa fa-user-plus fs-1" aria-hidden="true"></i><br>
+                  Register Students
+               </a> 
+               <a href="" class="col btn btn-dark m-2 py-3 col-5">
+                 <i class="fa fa-user-plus fs-1" aria-hidden="true"></i><br>
+                 Register Teachers
+               </a>
+               <br>
+               
+               <a href="" class="col btn btn-dark m-2 py-3 col-5">
+                 <i class="fa fa-columns fs-1" aria-hidden="true"></i><br>
+                  Timetable
+               </a> 
+               
+               <a href="" class="col btn btn-info m-2 py-3 col-5">
+                 <i class="fa fa-cogs fs-1" aria-hidden="true"></i><br>
+                  Change Password
+               </a> 
+               <a href="../logout.php" class="col btn btn-warning m-2 py-3 col-10">
+                 <i class="fa fa-sign-out fs-1" aria-hidden="true"></i><br>
+                  Logout
+               </a> 
+             </div>
+          </div>
+        </div>
         </div>
     </div>
      <?php 

@@ -9,7 +9,7 @@ if (isset($_SESSION['r_user_id']) &&
        include "data/grade.php";
        include "data/section.php";
        $grades = getAllGrades($conn);
-       $sections = getAllSections($conn);
+       
 
 
        $fname = '';
@@ -18,7 +18,7 @@ if (isset($_SESSION['r_user_id']) &&
        $address = '';
        $email = '';
        $pfn = '';
-       $pln = '';
+       
        $ppn = '';
 
 
@@ -28,7 +28,7 @@ if (isset($_SESSION['r_user_id']) &&
        if (isset($_GET['address'])) $address = $_GET['address'];
        if (isset($_GET['email'])) $email = $_GET['email'];
        if (isset($_GET['pfn'])) $pfn = $_GET['pfn'];
-       if (isset($_GET['pln'])) $pln = $_GET['pln'];
+       
        if (isset($_GET['ppn'])) $ppn = $_GET['ppn'];
  ?>
 <!DOCTYPE html>
@@ -36,16 +36,19 @@ if (isset($_SESSION['r_user_id']) &&
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Registrar Office - Add Student</title>
+	<title>Registrar - Add Student</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
-	<link rel="icon" href="../logo.png">
+	<link rel="icon" href="../images/Madrassa_logo2.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    <?php 
+        include "inc/navbar.php";
+     ?>
      <div class="container mt-5">
-        <a href="index.php"
+        <a href="student.php"
            class="btn btn-dark">Go Back</a>
 
         <form method="post"
@@ -63,28 +66,28 @@ if (isset($_SESSION['r_user_id']) &&
           </div>
         <?php } ?>
         <div class="mb-3">
-          <label class="form-label">First name</label>
+          <label class="form-label">Full name</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$fname?>" 
                  name="fname">
         </div>
         <div class="mb-3">
-          <label class="form-label">Last name</label>
+          <label class="form-label">Admission Number</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$lname?>"
                  name="lname">
         </div>
         <div class="mb-3">
-          <label class="form-label">Address</label>
+          <label class="form-label">Address/location</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$address?>"
                  name="address">
         </div>
         <div class="mb-3">
-          <label class="form-label">Email address</label>
+          <label class="form-label">Student/Parent's Email</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$email?>"
@@ -128,21 +131,15 @@ if (isset($_SESSION['r_user_id']) &&
           
         </div><br><hr>
         <div class="mb-3">
-          <label class="form-label">Parent first name</label>
+          <label class="form-label">Parent/Guardian's Full name</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$pfn?>"
                  name="parent_fname">
         </div>
+        
         <div class="mb-3">
-          <label class="form-label">Parent last name</label>
-          <input type="text" 
-                 class="form-control"
-                 value="<?=$pln?>"
-                 name="parent_lname">
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Parent phone number</label>
+          <label class="form-label">Parent/Guardian's phone number</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$ppn?>"
@@ -162,20 +159,7 @@ if (isset($_SESSION['r_user_id']) &&
              
           </div>
         </div>
-        <div class="mb-3">
-          <label class="form-label">Section</label>
-          <div class="row row-cols-5">
-            <?php foreach ($sections as $section): ?>
-            <div class="col">
-              <input type="radio"
-                     name="section"
-                     value="<?=$section['section_id']?>">
-                     <?=$section['section']?>
-            </div>
-            <?php endforeach ?>
-             
-          </div>
-        </div>
+        
 
       <button type="submit" class="btn btn-primary">Register</button>
      </form>
@@ -184,7 +168,7 @@ if (isset($_SESSION['r_user_id']) &&
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
         $(document).ready(function(){
-             $("#navLinks li:nth-child(3) a").addClass('active');
+             $("#navLinks li:nth-child(2) a").addClass('active');
         });
 
         function makePass(length) {
@@ -203,7 +187,7 @@ if (isset($_SESSION['r_user_id']) &&
         var gBtn = document.getElementById('gBtn');
         gBtn.addEventListener('click', function(e){
           e.preventDefault();
-          makePass(4);
+          makePass(5);
         });
     </script>
 
