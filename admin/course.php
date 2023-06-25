@@ -51,7 +51,7 @@ if (isset($_SESSION['admin_id']) &&
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Subject</th>
-                    <th scope="col">course Code</th>
+                    <th scope="col">Subject Code</th>
                     <th scope="col">Classes taught in</th>
                   </tr>
                 </thead>

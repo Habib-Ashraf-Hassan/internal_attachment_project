@@ -14,40 +14,32 @@ if (isset($_POST['course_name']) &&
 
     $course_name = $_POST['course_name'];
     $course_code = $_POST['course_code'];
-    $grade = $_POST['grade'];
+    $grade = "";
+    foreach ($_POST['grade'] as $class) {
+    	$grade .=$class;
+    }
 
   if (empty($course_name)) {
-		$em  = "course name is required";
+		$em  = "Subject name is required";
 		header("Location: ../course-add.php?error=$em");
 		exit;
 	}else if(empty($course_code)) {
-    $em  = "course code is required";
+    $em  = "Subject code is required";
     header("Location: ../course-add.php?error=$em");
     exit;
   }else if (empty($grade)) {
-		$em  = "Grade is required";
+		$em  = "Class is required";
 		header("Location: ../course-add.php?error=$em");
 		exit;
 	}else {
-        // check if the class already exists
-        $sql_check = "SELECT * FROM subjects 
-                      WHERE grade=? AND subject_code=?";
-        $stmt_check = $conn->prepare($sql_check);
-        $stmt_check->execute([$grade, $course_code]);
-        if ($stmt_check->rowCount() > 0) {
-           $em  = "The course is already exists";
-           header("Location: ../course-add.php?error=$em");
-           exit;
-        }else {
           $sql  = "INSERT INTO
-                 subjects(grade, subject, subject_code)
-                 VALUES(?,?,?)";
+          subjects(grade, subject, subject_code)
+          VALUES(?,?,?)";
           $stmt = $conn->prepare($sql);
           $stmt->execute([$grade, $course_name, $course_code]);
           $sm = "New course created successfully";
           header("Location: ../course-add.php?success=$sm");
           exit;
-        } 
 	}
     
   }else {
