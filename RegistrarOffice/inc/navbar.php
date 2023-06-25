@@ -14,11 +14,11 @@
             </li>
 
             <li class="nav-item">
-            <a class="nav-link" href="">Register Student</a>
+            <a class="nav-link" href="student.php">Register Student</a>
             </li>
 
             <li class="nav-item">
-            <a class="nav-link" href="">Register Teacher</a>
+            <a class="nav-link" href="teacher.php">Register Teacher</a>
             </li>
 
             <li class="nav-item">

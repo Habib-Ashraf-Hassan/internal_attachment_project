@@ -14,7 +14,18 @@ function getAllStudents($conn){
    }
 }
 
-
+// DELETE
+function removeStudent($id, $conn){
+   $sql  = "DELETE FROM students
+           WHERE student_id=?";
+   $stmt = $conn->prepare($sql);
+   $re   = $stmt->execute([$id]);
+   if ($re) {
+     return 1;
+   }else {
+    return 0;
+   }
+}
 
 // Get Student By Id 
 function getStudentById($id, $conn){
@@ -70,12 +81,11 @@ function searchStudents($key, $conn){
            OR address LIKE ?
            OR email_address LIKE ?
            OR parent_fname LIKE ?
-           OR parent_lname LIKE ?
+           OR username LIKE ?
            OR parent_phone_number LIKE ?
-           OR lname LIKE ?
-           OR username LIKE ?";
+           OR gender LIKE ?";
    $stmt = $conn->prepare($sql);
-   $stmt->execute([$key, $key, $key, $key, $key, $key, $key, $key, $key]);
+   $stmt->execute([$key, $key, $key, $key, $key, $key, $key, $key]);
 
    if ($stmt->rowCount() == 1) {
      $students = $stmt->fetchAll();
