@@ -76,7 +76,7 @@ if (isset($_SESSION['r_user_id']) &&
                   Timetable
                </a> 
                
-               <a href="" class="col btn btn-info m-2 py-3 col-5">
+               <a href="pass.php" class="col btn btn-info m-2 py-3 col-5">
                  <i class="fa fa-cogs fs-1" aria-hidden="true"></i><br>
                   Change Password
                </a> 

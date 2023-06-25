@@ -69,3 +69,42 @@ function removeRUser($id, $conn){
     return 0;
    }
 }
+
+function registrarPasswordVerify($r_pass, $conn, $r_user_id){
+  $sql = "SELECT * FROM registrar_office
+          WHERE r_user_id=?";
+  $stmt = $conn->prepare($sql);
+  $stmt->execute([$r_user_id]);
+
+  if ($stmt->rowCount() == 1) {
+    $registrar = $stmt->fetch();
+    $pass  = $registrar['password'];
+
+    if (password_verify($r_pass, $pass)) {
+       return 1;
+    }else {
+       return 0;
+    }
+  }else {
+   return 0;
+  }
+}
+function adminPasswordVerify($admin_pass, $conn, $admin_id){
+  $sql = "SELECT * FROM admin
+          WHERE admin_id=?";
+  $stmt = $conn->prepare($sql);
+  $stmt->execute([$admin_id]);
+
+  if ($stmt->rowCount() == 1) {
+    $admin = $stmt->fetch();
+    $pass  = $admin['password'];
+
+    if (password_verify($admin_pass, $pass)) {
+      return 1;
+    }else {
+      return 0;
+    }
+  }else {
+   return 0;
+  }
+}

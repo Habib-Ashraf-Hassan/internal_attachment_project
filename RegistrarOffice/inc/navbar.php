@@ -26,7 +26,7 @@
             </li>
 
             <li class="nav-item">
-            <a class="nav-link" href="">Change Password</a>
+            <a class="nav-link" href="pass.php">Change Password</a>
             </li>
         </ul>
         <ul class="navbar-nav me-right mb-2 mb-lg-0">
