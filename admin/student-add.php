@@ -187,7 +187,7 @@ if (isset($_SESSION['admin_id']) &&
         var gBtn = document.getElementById('gBtn');
         gBtn.addEventListener('click', function(e){
           e.preventDefault();
-          makePass(4);
+          makePass(5);
         });
     </script>
 
