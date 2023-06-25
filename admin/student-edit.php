@@ -73,7 +73,7 @@ if (isset($_SESSION['admin_id']) &&
                  name="lname">
         </div>
         <div class="mb-3">
-          <label class="form-label">Address</label>
+          <label class="form-label">Address/Location</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$student['address']?>"

@@ -80,7 +80,7 @@ if (isset($_SESSION['admin_id']) &&
                  name="lname">
         </div>
         <div class="mb-3">
-          <label class="form-label">Address</label>
+          <label class="form-label">Address/location</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$address?>"
@@ -131,7 +131,7 @@ if (isset($_SESSION['admin_id']) &&
           
         </div><br><hr>
         <div class="mb-3">
-          <label class="form-label">Parent first name</label>
+          <label class="form-label">Parent/Guardian's Full name</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$pfn?>"
@@ -139,7 +139,7 @@ if (isset($_SESSION['admin_id']) &&
         </div>
         
         <div class="mb-3">
-          <label class="form-label">Parent phone number</label>
+          <label class="form-label">Parent/Guardian's phone number</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$ppn?>"

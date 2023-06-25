@@ -100,7 +100,7 @@ if (isset($_SESSION['admin_id']) &&
           
         </div>
         <div class="mb-3">
-          <label class="form-label">Address</label>
+          <label class="form-label">Address/Location</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$address?>"
@@ -122,7 +122,7 @@ if (isset($_SESSION['admin_id']) &&
         </div>
         
         <div class="mb-3">
-          <label class="form-label">Email Address</label>
+          <label class="form-label">Email</label>
           <input type="email" 
                  class="form-control"
                  value="<?=$email?>"

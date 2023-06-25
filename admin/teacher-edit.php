@@ -68,7 +68,7 @@ if (isset($_SESSION['admin_id']) &&
                  name="fname">
         </div>
         <div class="mb-3">
-          <label class="form-label">Last name</label>
+          <label class="form-label">National ID</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$teacher['national_id']?>"
@@ -82,7 +82,7 @@ if (isset($_SESSION['admin_id']) &&
                  name="username">
         </div>
         <div class="mb-3">
-          <label class="form-label">address</label>
+          <label class="form-label">address/location</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$teacher['address']?>"
@@ -111,7 +111,7 @@ if (isset($_SESSION['admin_id']) &&
         </div>
         
         <div class="mb-3">
-          <label class="form-label">Email address</label>
+          <label class="form-label">Email</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$teacher['email_address']?>"
@@ -135,7 +135,7 @@ if (isset($_SESSION['admin_id']) &&
                 hidden>
 
         <div class="mb-3">
-          <label class="form-label">Subject teaching</label>
+          <label class="form-label">Subjects teaching</label>
           <div class="row row-cols-5">
             <?php 
             $subject_ids = str_split(trim($teacher['subjects']));
