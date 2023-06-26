@@ -42,7 +42,7 @@ if (isset($_SESSION['teacher_id']) &&
             <h5 class="card-title text-center">@<?=$teacher['username']?></h5>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Full name: <?=$teacher['fname']?></li>
+            <li class="list-group-item">Full name:<?=$teacher['fname']?></li>
             <li class="list-group-item">National ID: <?=$teacher['national_id']?></li>
             
 
