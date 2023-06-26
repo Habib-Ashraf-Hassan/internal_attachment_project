@@ -21,6 +21,10 @@ if (isset($_SESSION['student_id']) &&
     <?php 
         include "inc/navbar.php";
      ?>
+     <div style="padding: 10px;">
+     <a href="index.php"
+          class="btn btn-dark">Go Back</a>
+     </div>
      <div class="d-flex justify-content-center align-items-center flex-column">
          <form method="post"
               class="shadow p-3 my-5 form-w" 
