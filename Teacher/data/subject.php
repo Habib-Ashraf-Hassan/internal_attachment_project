@@ -29,20 +29,34 @@ function getSubjectById($subject_id, $conn){
    }
 }
 
+function getSubjectByGrade($grade, $conn) {
+  $sql = "SELECT * FROM subjects
+          WHERE grade LIKE ?";
+  $stmt = $conn->prepare($sql);
+  $gradeParam = '%$grade%';
+  $stmt->execute([$gradeParam]);
+
+  if ($stmt->rowCount() > 0) {
+      $subjects = $stmt->fetchAll();
+      return $subjects;
+  } else {
+      return 0;
+  }
+}
 
 // Get Subjects by ID
-function getSubjectByGrade($grade, $conn){
-   $sql = "SELECT * FROM subjects
-           WHERE grade=?";
-   $stmt = $conn->prepare($sql);
-   $stmt->execute([$grade]);
+// function getSubjectByGrade($grade, $conn){
+//    $sql = "SELECT * FROM subjects
+//            WHERE grade=?";
+//    $stmt = $conn->prepare($sql);
+//    $stmt->execute([$grade]);
 
-   if ($stmt->rowCount() > 0) {
-     $subject = $stmt->fetchAll();
-     return $subject;
-   }else {
-    return 0;
-   }
-}
+//    if ($stmt->rowCount() > 0) {
+//      $subject = $stmt->fetchAll();
+//      return $subject;
+//    }else {
+//     return 0;
+//    }
+// }
 
  ?>

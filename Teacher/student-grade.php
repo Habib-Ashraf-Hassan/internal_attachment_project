@@ -30,7 +30,7 @@ if (isset($_SESSION['teacher_id']) &&
 
        
       
-       $ssubject_id = 0;
+       $ssubject_id = 0; 
        if (isset($_POST['ssubject_id'])) {
            $ssubject_id = $_POST['ssubject_id'];
 
@@ -62,18 +62,14 @@ if (isset($_SESSION['teacher_id']) &&
             <div class="mb-3">
                 <ul class="list-group">
                     <li class="list-group-item"><b>ID: </b> <?php echo $student['student_id'] ?></li>
-                  <li class="list-group-item"><b>First Name: </b> <?php echo $student['fname'] ?></li>
-                  <li class="list-group-item"><b>Last Name: </b> <?php echo $student['lname'] ?></li>
-                  <li class="list-group-item"><b>Garde: </b> 
+                  <li class="list-group-item"><b>Full Name: </b> <?php echo $student['fname'] ?></li>
+                  <li class="list-group-item"><b>Admission No.: </b> <?php echo $student['admission_number'] ?></li>
+                  <li class="list-group-item"><b>Class: </b> 
                     <?php  $g = getGradeById($student['grade'], $conn); 
                         echo $g['grade_code'].'-'.$g['grade'];
                     ?>
                   </li>
-                  <li class="list-group-item"><b>Section: </b> 
-                    <?php  $s = getSectioById($student['section'], $conn); 
-                        echo $s['section'];
-                    ?>
-                  </li>
+                  
                   <li class="list-group-item text-center"><b>Year: </b> <?php echo $setting['current_year']; ?> &nbsp;&nbsp;&nbsp;<b>Semester</b> <?php echo $setting['current_semester']; ?></li>
                 </ul>
             </div>

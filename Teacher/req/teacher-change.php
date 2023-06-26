@@ -12,6 +12,9 @@ if (isset($_POST['old_pass']) &&
     
     include '../../DB_connection.php';
     include "../data/student.php";
+    include "../data/teacher.php";
+
+
 
     $old_pass = $_POST['old_pass'];
     $new_pass = $_POST['new_pass'];
@@ -35,7 +38,7 @@ if (isset($_POST['old_pass']) &&
         $em  = "New password and confirm password does not match";
         header("Location: ../pass.php?perror=$em");
         exit;
-    }else if (!studentPasswordVerify($old_pass, $conn, $teacher_id)) {
+    }else if (!teacherPasswordVerify($old_pass, $conn, $teacher_id)) {
         $em  = "Incorrect old password";
         header("Location: ../pass.php?perror=$em");
         exit;

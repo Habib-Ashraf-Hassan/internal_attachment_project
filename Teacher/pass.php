@@ -13,7 +13,7 @@ if (isset($_SESSION['teacher_id']) &&
 	<title>Teacher - Change Password</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
-	<link rel="icon" href="../logo.png">
+	<link rel="icon" href="../images/Madrassa_logo2.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -21,6 +21,10 @@ if (isset($_SESSION['teacher_id']) &&
     <?php 
         include "inc/navbar.php";
      ?>
+     <div style="padding: 10px;">
+     <a href="index.php"
+          class="btn btn-dark">Go Back</a>
+     </div>
      <div class="d-flex justify-content-center align-items-center flex-column">
          <form method="post"
               class="shadow p-3 my-5 form-w" 
