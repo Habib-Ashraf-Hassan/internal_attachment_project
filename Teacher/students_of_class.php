@@ -66,7 +66,7 @@ if (isset($_SESSION['teacher_id']) &&
                     <th scope="row"><?=$i?></th>
                     <td><?=$student['student_id']?></td>
                     <td>
-                      <a href="student-grade.php?student_id=<?=$student['student_id']?>">
+                      <a href="student-view.php?student_id=<?=$student['student_id']?>">
                         <?=$student['fname']?>
                       </a>
                     </td>
