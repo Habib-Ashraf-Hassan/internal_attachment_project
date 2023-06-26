@@ -74,7 +74,7 @@ if (isset($_SESSION['student_id']) &&
         <div class="container mt-5">
          <div class="container text-center">
              <div class="row row-cols-5">
-               <a href="classes.php" 
+               <a href="grade.php" 
                   class="col btn btn-dark m-2 py-3 col-5">
                  <i class="fa fa-book fs-1" aria-hidden="true"></i><br>
                   Grade summary
