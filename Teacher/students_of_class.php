@@ -16,7 +16,7 @@ if (isset($_SESSION['teacher_id']) &&
        $class_id = $_GET['class_id'];
        $students = getAllStudents($conn);
 
-       $class = getClassById($class_id, $conn);
+      //  $class = getClassById($class_id, $conn);
 
  ?>
 <!DOCTYPE html>
@@ -27,7 +27,7 @@ if (isset($_SESSION['teacher_id']) &&
 	<title>Teacher - Students</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
-	<link rel="icon" href="../logo.png">
+	<link rel="icon" href="../images/Madrassa_logo2.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -39,23 +39,25 @@ if (isset($_SESSION['teacher_id']) &&
      ?>
      
   <?php $i = 0; foreach ($students as $student ) { 
-       $g = getGradeById($class['grade'], $conn);
-       $s = getSectioById($class['section'], $conn);
-       if ($g['grade_id'] == $student['grade'] && $s['section_id'] == $student['section']) { $i++; 
+       $g = getGradeById($class_id, $conn);
+      //  $s = getSectioById($class['section'], $conn);
+       if ($g['grade_id'] == $student['grade']) { $i++; 
        if ($i == 1) { 
         $check++;
     ?>
         <div class="container mt-5">
+            <a href="students.php"
+              class="btn btn-dark">Go Back</a>
            <div class="table-responsive">
               <table class="table table-bordered mt-3 n-table">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">ID</th>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
+                    <th scope="col">Full Name</th>
+                    <th scope="col">Gender</th>
                     <th scope="col">Username</th>
-                    <th scope="col">Grade</th>
+                    <th scope="col">Class</th>
                   </tr>
                 </thead>
                 <tbody>  
@@ -68,7 +70,7 @@ if (isset($_SESSION['teacher_id']) &&
                         <?=$student['fname']?>
                       </a>
                     </td>
-                    <td><?=$student['lname']?></td>
+                    <td><?=$student['gender']?></td>
                     <td><?=$student['username']?></td>
                     <td>
                       <?php 

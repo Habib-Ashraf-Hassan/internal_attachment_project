@@ -94,7 +94,7 @@ if (isset($_SESSION['teacher_id']) &&
                  <i class="fa fa-cubes fs-1" aria-hidden="true"></i><br>
                   Classes
                </a> 
-               <a href="" class="col btn btn-dark m-2 py-3 col-5">
+               <a href="students.php" class="col btn btn-dark m-2 py-3 col-5">
                  <i class="fa fa-users fs-1" aria-hidden="true"></i><br>
                  Students
                </a>
