@@ -28,7 +28,7 @@ function getGradeById($grade_id, $conn){
    }
 }
 
-// DELETE
+// DELETE a grade/class
 function removeGrade($id, $conn){
    $sql  = "DELETE FROM grades
            WHERE grade_id=?";

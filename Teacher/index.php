@@ -23,7 +23,7 @@ if (isset($_SESSION['teacher_id']) &&
 	<title>Teacher - Home</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
-	<link rel="icon" href="../logo.png">
+	<link rel="icon" href="../images/Madrassa_logo2.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -33,27 +33,29 @@ if (isset($_SESSION['teacher_id']) &&
 
         if ($teacher != 0) {
      ?>
-     <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-6">
+        <div class="container mt-5">
          <div class="card" style="width: 22rem;">
           <img src="../img/teacher-<?=$teacher['gender']?>.png" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title text-center">@<?=$teacher['username']?></h5>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">First name: <?=$teacher['fname']?></li>
-            <li class="list-group-item">Last name: <?=$teacher['lname']?></li>
-            <li class="list-group-item">Username: <?=$teacher['username']?></li>
+            <li class="list-group-item">Full name: <?=$teacher['fname']?></li>
+            <li class="list-group-item">National ID: <?=$teacher['national_id']?></li>
+            
 
             <li class="list-group-item">Employee number: <?=$teacher['employee_number']?></li>
             <li class="list-group-item">Address: <?=$teacher['address']?></li>
             <li class="list-group-item">Date of birth: <?=$teacher['date_of_birth']?></li>
             <li class="list-group-item">Phone number: <?=$teacher['phone_number']?></li>
-            <li class="list-group-item">Qualification: <?=$teacher['qualification']?></li>
+            
             <li class="list-group-item">Email address: <?=$teacher['email_address']?></li>
             <li class="list-group-item">Gender: <?=$teacher['gender']?></li>
-            <li class="list-group-item">Date of joined: <?=$teacher['date_of_joined']?></li>
+            <li class="list-group-item">Date joined: <?=$teacher['date_of_joined']?></li>
 
-            <li class="list-group-item">Subject: 
+            <li class="list-group-item">Subjects teaching: 
                 <?php 
                    $s = '';
                    $subjects = str_split(trim($teacher['subjects']));
@@ -65,28 +67,58 @@ if (isset($_SESSION['teacher_id']) &&
                    echo $s;
                 ?>
             </li>
-            <li class="list-group-item">Class: 
-                  <?php 
-                     $c = '';
-                     $classes = str_split(trim($teacher['class']));
-
-                     foreach ($classes as $class_id) {
-                         $class = getClassById($class_id, $conn);
-
-                        $c_temp = getGradeById($class['grade'], $conn);
-                        $section = getSectioById($class['section'], $conn);
-                        if ($c_temp != 0) 
-                          $c .=$c_temp['grade_code'].'-'.
-                               $c_temp['grade'].$section['section'].', ';
-                     }
-                     echo $c;
-
-                  ?>
+            <li class="list-group-item">Classes teaching: 
+                <?php 
+                      $g = '';
+                      $grades = str_split(trim($teacher['grades']));
+                          foreach ($grades as $grade) {
+                              $g_temp = getGradeById($grade, $conn);
+                              if ($g_temp != 0) 
+                                $g .=$g_temp['grade_code'].'-'.$g_temp['grade'].', ';
+                          }
+                           echo $g;
+                      ?>
             </li>
             
           </ul>
         </div>
      </div>
+
+        </div>
+        <div class="col-md-6">
+        <div class="container mt-5">
+         <div class="container text-center">
+             <div class="row row-cols-5">
+               <a href="classes.php" 
+                  class="col btn btn-dark m-2 py-3 col-5">
+                 <i class="fa fa-cubes fs-1" aria-hidden="true"></i><br>
+                  Classes
+               </a> 
+               <a href="" class="col btn btn-dark m-2 py-3 col-5">
+                 <i class="fa fa-users fs-1" aria-hidden="true"></i><br>
+                 Students
+               </a>
+               <a href="" class="col btn btn-dark m-2 py-3 col-5">
+                 <i class="fa fa-level-up fs-1" aria-hidden="true"></i><br>
+                  Enter Students' grades
+               </a> 
+               
+               <a href="pass.php" class="col btn btn-info m-2 py-3 col-5">
+                 <i class="fa fa-cogs fs-1" aria-hidden="true"></i><br>
+                  Change Password
+               </a> 
+               <a href="../logout.php" class="col btn btn-warning m-2 py-3 col-10">
+                 <i class="fa fa-sign-out fs-1" aria-hidden="true"></i><br>
+                  Logout
+               </a> 
+             </div>
+          </div>
+        </div>
+        
+
+        </div>
+      </div>
+     
      <?php 
         }else {
           header("Location: logout.php?error=An error occurred");

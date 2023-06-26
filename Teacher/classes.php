@@ -12,7 +12,7 @@ if (isset($_SESSION['teacher_id']) &&
        
        $teacher_id = $_SESSION['teacher_id'];
        $teacher = getTeacherById($teacher_id, $conn);
-       $classes = getAllClasses($conn);
+       $classes = getAllGrades($conn);
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +38,7 @@ if (isset($_SESSION['teacher_id']) &&
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Class</th>
+                    <th scope="col">Classes</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -47,12 +47,12 @@ if (isset($_SESSION['teacher_id']) &&
                   
 
                       <?php 
-                          $classesx = str_split(trim($teacher['class']));
-                          $grade  = getGradeById($class['grade'], $conn);
-                          $section = getSectioById($class['section'], $conn);
-                          $c = $grade['grade_code'].'-'.$grade['grade'].$section['section'];
+                          $classesx = str_split(trim($teacher['grades']));
+                          $grade  = getGradeById($class['grade_id'], $conn);
+                          
+                          $c = $grade['grade_code'].'-'.$grade['grade'];
                           foreach ($classesx as $class_id) {
-                               if ($class_id == $class['class_id']) {  $i++; ?>
+                               if ($class_id == $class['grade_id']) {  $i++; ?>
                             <tr>
                                 <th scope="row"><?=$i?></th>
                                 <td>
