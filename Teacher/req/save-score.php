@@ -22,6 +22,7 @@ if (isset($_POST['score-1']) &&
     isset($_POST['current_semester'])
     ) {
     
+      
     include '../../DB_connection.php';
 
 

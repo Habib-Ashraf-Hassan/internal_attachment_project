@@ -36,3 +36,23 @@ function teacherPasswordVerify($teacher_pass, $conn, $teacher_id){
 }
 
 
+function findCommonCharacters($str1, $str2) {
+    $commonChars = array();
+
+    $charCount1 = array_count_values(str_split($str1));
+    $charCount2 = array_count_values(str_split($str2));
+
+    foreach ($charCount1 as $char => $count) {
+        if (isset($charCount2[$char])) {
+            $commonChars[] = $char;
+        }
+    }
+
+    return $commonChars;
+}
+
+
+
+
+
+

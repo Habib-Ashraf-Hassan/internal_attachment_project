@@ -102,7 +102,7 @@ if (isset($_SESSION['teacher_id']) &&
                         ?>
                     </td>
                     <td>
-                    <a href=""
+                    <a href="student-enter.php?student_id=<?=$student['student_id']?>"
                         class="btn btn-warning">Grade</a>
                     </td>
                     

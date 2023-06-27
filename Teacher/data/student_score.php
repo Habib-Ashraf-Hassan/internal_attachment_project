@@ -28,3 +28,31 @@ function getScoreById($student_id, $teacher_id, $subject_id, $semester, $year, $
     return 0;
    }
 }
+
+function getScoreByStudentId($student_id, $subject_id, $semester, $year, $conn){
+  $sql = "SELECT * FROM student_score
+          WHERE student_id=? AND subject_id=? AND semester=? AND year=?";
+  $stmt = $conn->prepare($sql);
+  $stmt->execute([$student_id, $subject_id, $semester, $year]);
+
+  if ($stmt->rowCount() == 1) {
+    $student_score = $stmt->fetch();
+    return $student_score;
+  }else {
+   return 0;
+  }
+}
+
+function getResultsByStudentId($student_id, $subject_id, $semester, $year, $conn){
+  $sql = "SELECT * FROM student_results
+          WHERE student_id=? AND subject_id=? AND semester=? AND year=?";
+  $stmt = $conn->prepare($sql);
+  $stmt->execute([$student_id, $subject_id, $semester, $year]);
+
+  if ($stmt->rowCount() == 1) {
+    $student_score = $stmt->fetch();
+    return $student_score;
+  }else {
+   return 0;
+  }
+}
