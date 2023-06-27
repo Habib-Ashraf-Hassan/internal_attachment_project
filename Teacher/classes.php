@@ -38,7 +38,7 @@ if (isset($_SESSION['teacher_id']) &&
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Classes</th>
+                    <th scope="col">Classes teaching</th>
                   </tr>
                 </thead>
                 <tbody>
