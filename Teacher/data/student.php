@@ -80,3 +80,17 @@ function studentPasswordVerify($student_pass, $conn, $student_id){
     return 0;
    }
 }
+
+function getStudentByGradeId($grade_id, $conn){
+  $sql = "SELECT * FROM students
+          WHERE grade=?";
+  $stmt = $conn->prepare($sql);
+  $stmt->execute([$grade_id]);
+
+  if ($stmt->rowCount() > 0) {
+    $student = $stmt->fetch();
+    return $student;
+  }else {
+   return 0;
+  }
+}

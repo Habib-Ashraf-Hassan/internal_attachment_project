@@ -98,7 +98,7 @@ if (isset($_SESSION['teacher_id']) &&
                  <i class="fa fa-users fs-1" aria-hidden="true"></i><br>
                  Students
                </a>
-               <a href="" class="col btn btn-dark m-2 py-3 col-5">
+               <a href="student-enter-grade.php" class="col btn btn-dark m-2 py-3 col-5">
                  <i class="fa fa-level-up fs-1" aria-hidden="true"></i><br>
                   Enter Students' grades
                </a> 
