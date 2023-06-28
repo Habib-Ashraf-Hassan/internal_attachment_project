@@ -28,16 +28,31 @@ function findCommonCharacters($str1, $str2) {
     return $commonChars;
 }
 
-// Example usage
-$var1 = "12368901";
-$var2 = "12345698701";
+// // Example usage
+// $var1 = "12368901";
+// $var2 = "12345698701";
 
-$result = findCommonCharacters($var1, $var2);
+// $result = findCommonCharacters($var1, $var2);
 
-// Iterate through each character in the result
-foreach ($result as $char) {
-    echo $char . "\n";
+// // Iterate through each character in the result
+// foreach ($result as $char) {
+//     echo $char . "\n";
+// }
+function getPreviousSemester($current_semester) {
+    if ($current_semester == "I") {
+        return "I";
+    } else {
+        return substr($current_semester, 0, -1);
+    }
 }
+
+$current_semester = "I";
+$previous_semester = getPreviousSemester($current_semester);
+
+$current_year = "2023";
+$previous_year = date('Y', strtotime($current_year . ' -1 year'));
+echo $previous_year;
+echo $previous_semester;
 ?>
 
 

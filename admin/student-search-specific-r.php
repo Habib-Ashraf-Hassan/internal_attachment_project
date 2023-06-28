@@ -4,18 +4,20 @@ if (isset($_SESSION['admin_id']) &&
     isset($_SESSION['role'])) {
 
     if ($_SESSION['role'] == 'Admin') {
+       if (isset($_GET['searchKey'])) {
+
+       $search_key = $_GET['searchKey'];
        include "../DB_connection.php";
        include "data/student.php";
        include "data/grade.php";
-       include "data/results.php";
-       $students = getAllresults($conn);
+       $students = searchStudentsResults($search_key, $conn);
  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Admin - Results</title>
+	<title>Admin - Search Specific Students results</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
 	<link rel="icon" href="../images/Madrassa_logo2.png">
@@ -28,20 +30,14 @@ if (isset($_SESSION['admin_id']) &&
         if ($students != 0) {
      ?>
      <div class="container mt-5">
-        
-           <form action="student-view-r.php" 
+           <form action="student-search-specific-r.php" 
                  class="mt-3 n-table"
                  method="get">
              <div class="input-group mb-3">
-                
-                <select class="form-control" name="searchKey"
-                    placeholder="Search by duration...">
-                    <option value="current_year">Current year</option>
-                    <option value="current_year_current_semester">Current year, Current term</option>
-                    <option value="current_year_previous_semester">Current year, previous term</option>
-                    <option value="previous_year">Previous year</option>
-                    
-                </select>
+                <input type="text" 
+                       class="form-control"
+                       name="searchKey"
+                       placeholder="Search...">
                 <button class="btn btn-primary">
                         <i class="fa fa-search" 
                            aria-hidden="true"></i>
@@ -64,7 +60,7 @@ if (isset($_SESSION['admin_id']) &&
             <?php } ?>
 
            <div class="table-responsive">
-              <table class="table table-bordered mt-3 n-table">
+           <table class="table table-bordered mt-3 n-table">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
@@ -109,7 +105,9 @@ if (isset($_SESSION['admin_id']) &&
          <?php }else{ ?>
              <div class="alert alert-info .w-450 m-5" 
                   role="alert">
-                Empty!
+                    No Results Found!
+                 <a href="results.php"
+                   class="btn btn-dark">Go Back</a>
               </div>
          <?php } ?>
      </div>
@@ -124,6 +122,10 @@ if (isset($_SESSION['admin_id']) &&
 </body>
 </html>
 <?php 
+    }else {
+      header("Location: results.php");
+      exit;
+    } 
 
   }else {
     header("Location: ../login.php");

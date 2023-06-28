@@ -94,3 +94,19 @@ function searchStudents($key, $conn){
     return 0;
    }
 }
+function searchStudentsResults($key, $conn){
+  $key = preg_replace('/(?<!\\\)([%_])/', '\\\$1',$key);
+  $sql = "SELECT * FROM student_results
+          WHERE student_id LIKE ? 
+          OR fname LIKE ?
+          OR adm_number LIKE ?";
+  $stmt = $conn->prepare($sql);
+  $stmt->execute([$key, $key, $key]);
+
+  if ($stmt->rowCount() >= 1) {
+    $students = $stmt->fetchAll();
+    return $students;
+  }else {
+   return 0;
+  }
+}

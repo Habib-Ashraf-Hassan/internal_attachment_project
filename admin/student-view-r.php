@@ -4,24 +4,48 @@ if (isset($_SESSION['admin_id']) &&
     isset($_SESSION['role'])) {
 
     if ($_SESSION['role'] == 'Admin') {
+       if (isset($_GET['searchKey'])) {
+
+       $search_key = $_GET['searchKey'];
        include "../DB_connection.php";
        include "data/student.php";
-       include "data/subject.php";
        include "data/grade.php";
-       include "data/section.php";
+       include "data/results.php";
+       include "data/setting.php";
+       $settings = getSetting($conn);
+       $current_year = $settings['current_year'];
+       
+       
+      // $previous_year = date('Y', strtotime($current_year . ' -1 year'));
+      $previous_year = $current_year - 1;
 
-       if(isset($_GET['student_id'])){
+       $current_semester = $settings['current_semester'];
+       $previous_semester = getPreviousSemester($current_semester);
+       if ($search_key == "current_year"){
+        $students = getAllresultsByYear($current_year, $conn);
+       }
+       else if ($search_key == "current_year_current_semester"){
+        $students = getAllresultsByYearandSemester($current_year, $current_semester, $conn);
+       }
+       else if ($search_key == "current_year_previous_semester"){
+        $students = getAllresultsByYearandSemester($current_year, $previous_semester, $conn);
+       }
+       else if ($search_key == "previous_year"){
+        $students = getAllresultsByYear($previous_year, $conn);
+       }
+       else{
+        $students = 0;
+       }
 
-       $student_id = $_GET['student_id'];
 
-       $student = getStudentById($student_id, $conn);    
+       
  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Admin - View student</title>
+	<title>Admin - Search Students results</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
 	<link rel="icon" href="../images/Madrassa_logo2.png">
@@ -31,48 +55,101 @@ if (isset($_SESSION['admin_id']) &&
 <body>
     <?php 
         include "inc/navbar.php";
-        if ($student != 0) {
+        if ($students != 0) {
      ?>
      <div class="container mt-5">
-         <div class="card" style="width: 22rem;">
-          <img src="../img/student-<?=$student['gender']?>.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title text-center">@<?=$student['username']?></h5>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">First name: <?=$student['fname']?></li>
-            <li class="list-group-item">Admission Number: <?=$student['admission_number']?></li>
-            <li class="list-group-item">Username: <?=$student['username']?></li>
-            <li class="list-group-item">Address: <?=$student['address']?></li>
-            <li class="list-group-item">Date of birth: <?=$student['date_of_birth']?></li>
-            <li class="list-group-item">Email address: <?=$student['email_address']?></li>
-            <li class="list-group-item">Gender: <?=$student['gender']?></li>
-            <li class="list-group-item">Date joined: <?=$student['date_of_joined']?></li>
+        
+           <form action="student-search-r-class.php" 
+                 class="mt-3 n-table"
+                 method="get">
+             <div class="input-group mb-3">
+                <select class="form-control" name="searchKey"
+                    placeholder="Search by duration...">
+                    <option value= 1>RWDH-1 </option>
+                    <option value= 2>FSL-1</option>
+                    <option value= 3>FSL-2</option>
+                    <option value= 4>FSL-3</option>
+                    <option value= 5>FSL-4</option>
+                    <option value= 6>FSL-5</option>
+                    <option value= 7>FSL-6</option>
+                    <option value= 8>MTWST-1</option>
+                    <option value= 9>MTWST-2</option>
 
-            <li class="list-group-item">Grade: 
-                 <?php 
-                      $grade = $student['grade'];
-                      $g = getGradeById($grade, $conn);
-                      echo $g['grade_code'].'-'.$g['grade'];
-                  ?>
-            </li>
-            
-            <br><br>
-            <li class="list-group-item">Parent first name: <?=$student['parent_fname']?></li>
-            
-            <li class="list-group-item">Parent phone number: <?=$student['parent_phone_number']?></li>
-          </ul>
-          <div class="card-body">
-            <a href="results.php" class="card-link">Go Back</a>
-          </div>
-        </div>
+                    
+                </select>
+                <button class="btn btn-primary">
+                        <i class="fa fa-search" 
+                           aria-hidden="true"></i>
+                </button>
+             </div>
+           </form>
+
+           <?php if (isset($_GET['error'])) { ?>
+            <div class="alert alert-danger mt-3 n-table" 
+                 role="alert">
+              <?=$_GET['error']?>
+            </div>
+            <?php } ?>
+
+          <?php if (isset($_GET['success'])) { ?>
+            <div class="alert alert-info mt-3 n-table" 
+                 role="alert">
+              <?=$_GET['success']?>
+            </div>
+            <?php } ?>
+
+           <div class="table-responsive">
+           <table class="table table-bordered mt-3 n-table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Full Name</th>
+                    <th scope="col">Admission number</th>
+                    <th scope="col">Class</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Semester</th>
+                    <th scope="col">Total marks</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php $i = 0; foreach ($students as $student ) { 
+                    $i++;  ?>
+                  <tr>
+                    <th scope="row"><?=$i?></th>
+                    <td><?=$student['student_id']?></td>
+                    <td>
+                      <a href="student-view-r.php?student_id=<?=$student['student_id']?>">
+                        <?=$student['fname']?>
+                      </a>
+                    </td>
+                    <td><?=$student['adm_number']?></td>
+                    <td><?=$student['class_id']?></td>
+                    <td>
+                    <?=$student['year']?>
+                    </td>
+                    <td>
+                    <?=$student['semester']?>
+                    </td>
+                    <td>
+                    <?=$student['total']?>
+                    </td>
+                    
+                  </tr>
+                <?php } ?>
+                </tbody>
+              </table>
+           </div>
+         <?php }else{ ?>
+             <div class="alert alert-info .w-450 m-5" 
+                  role="alert">
+                    No Results Found for that particular duration!
+                 <a href="results.php"
+                   class="btn btn-dark">Go Back</a>
+              </div>
+         <?php } ?>
      </div>
-     <?php 
-        }else {
-          header("Location: results.php");
-          exit;
-        }
-     ?>
      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
@@ -84,11 +161,10 @@ if (isset($_SESSION['admin_id']) &&
 </body>
 </html>
 <?php 
-
     }else {
-        header("Location: student.php");
-        exit;
-    }
+      header("Location: results.php");
+      exit;
+    } 
 
   }else {
     header("Location: ../login.php");
