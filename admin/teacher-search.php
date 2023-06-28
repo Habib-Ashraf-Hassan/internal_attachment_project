@@ -34,22 +34,9 @@ if (isset($_SESSION['admin_id']) &&
         <a href="teacher-add.php"
            class="btn btn-dark">Add New Teacher</a>
 
-           <form action="teacher-search.php"
-                 method="get" 
-                 class="mt-3 n-table">
-             <div class="input-group mb-3">
-                <input type="text" 
-                       class="form-control"
-                       name="searchKey"
-                       value="<?=$search_key?>" 
-                       placeholder="Search...">
-                <button class="btn btn-primary">
-                        <i class="fa fa-search" 
-                           aria-hidden="true"></i>
-                      </button>
-             </div>
-           </form>
-
+           &nbsp;
+                <a href="teacher.php"
+                class="btn btn-dark">Go Back</a>
 
            <?php if (isset($_GET['error'])) { ?>
             <div class="alert alert-danger mt-3 n-table" 

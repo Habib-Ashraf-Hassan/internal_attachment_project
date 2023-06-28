@@ -40,7 +40,7 @@ if (isset($_SESSION['admin_id']) &&
                 <input type="text" 
                        class="form-control"
                        name="searchKey"
-                       placeholder="Search...">
+                       placeholder="Search by name/national-id/gender/location/employee-no...">
                 <button class="btn btn-primary">
                         <i class="fa fa-search" 
                            aria-hidden="true"></i>
