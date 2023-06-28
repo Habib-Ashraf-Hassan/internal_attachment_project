@@ -30,6 +30,9 @@ if (isset($_POST['a1']) &&
     $teacher_id = $_SESSION['teacher_id'];
     $student = getStudentById($student_id, $conn);
     $student_class_id = $student['grade'];
+    $student_fname = $student['fname'];
+    $student_adm_number = $student['admission_number'];
+
     $student_score_id = getScoreByStudentId($student_id, $subject_id, $current_semester, $current_year, $conn);
     $student_results_id = getResultsByStudentId($student_id, $subject_id, $current_semester, $current_year, $conn);
 
@@ -89,18 +92,18 @@ if (isset($_POST['a1']) &&
                 }
                 
           }else {
-            $sql = "INSERT INTO student_score(semester, year, student_id, teacher_id, subject_id, results)VALUES(?,?,?,?,?,?)";
+            $sql = "INSERT INTO student_score(semester, year, student_id, teacher_id, subject_id, results, fname, adm_number)VALUES(?,?,?,?,?,?,?,?)";
 
             $stmt = $conn->prepare($sql);
-            $stmt->execute([$current_semester, $current_year, $student_id, $teacher_id, $subject_id, $data]);
+            $stmt->execute([$current_semester, $current_year, $student_id, $teacher_id, $subject_id, $data, $student_fname, $student_adm_number]);
             // $sm = "The Score has been entered successfully!";
             // header("Location: ../student-enter.php?student_id=$student_id&success=$sm");
 
             if ($student_results_id == 0){
-                $sql = "INSERT INTO student_results(semester, year, student_id, teacher_id, subject_id, class_id, total)VALUES(?,?,?,?,?,?,?)";
+                $sql = "INSERT INTO student_results(semester, year, student_id, teacher_id, subject_id, class_id, total, fname, adm_number)VALUES(?,?,?,?,?,?,?,?,?)";
 
                 $stmt = $conn->prepare($sql);
-                $stmt->execute([$current_semester, $current_year, $student_id, $teacher_id, $subject_id, $student_class_id, $total_results]);
+                $stmt->execute([$current_semester, $current_year, $student_id, $teacher_id, $subject_id, $student_class_id, $total_results, $student_fname, $student_adm_number]);
                 $sm = "The Score has been entered successfully!";
                 header("Location: ../student-enter.php?student_id=$student_id&success=$sm");
 
