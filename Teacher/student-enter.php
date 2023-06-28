@@ -82,9 +82,9 @@ if (isset($_SESSION['teacher_id']) &&
         <?php } ?>
 
         <div class="input-group mb-3">
-                  <input type="number" min="0" max="100" class="form-control" name="a1">
+                  <input type="number" min="0" max="500" class="form-control" name="a1">
                   <span class="input-group-text">/</span>
-                  <input type="number" min="0" max="100" class="form-control" 
+                  <input type="number" min="0" max="500" class="form-control" 
                   name="aoutof1">
         </div>
         <input type="text"

@@ -46,7 +46,7 @@ if (isset($_POST['a1']) &&
         $data = '';
         $total_results = 0;
         $limit = 0;
-        if ($score_1 <= 100 && $aoutof_1 <=100 && $score_1 > 0 && $aoutof_1 > 0 && $score_1 <=  $aoutof_1)  {
+        if ($score_1 > 0 && $aoutof_1 > 0 && $score_1 <=  $aoutof_1)  {
             $data .= $score_1." ".$aoutof_1; 
             $total_results = ($score_1/$aoutof_1)*100;
              $limit += $aoutof_1;
@@ -56,14 +56,14 @@ if (isset($_POST['a1']) &&
             $em  = "An error occurred, marks not entered!";
             header("Location: ../student-enter.php?student_id=$student_id&error=$em");
             exit;
-        }else if($limit > 101){
+        }else if($limit > 500){
             $em  = "Out of boundaries";
             header("Location: ../student-enter.php?student_id=$student_id&error=$em");
             exit;
         }
         else {
         if ($student_score_id != 0) {
-            $data = $student_score_id['results'].",".$data;
+            // $data = $student_score_id['results'].",".$data;
             
         $sql = "UPDATE student_score SET
                 results = ?
@@ -77,7 +77,7 @@ if (isset($_POST['a1']) &&
         // exit;
                 if ($student_results_id != 0) {
                     
-                    $total_results = ($total_results + $student_results_id['total'])/2;
+                    // $total_results = ($total_results + $student_results_id['total'])/2;
                     $sql = "UPDATE student_results SET
                             total = ?
                             WHERE  semester=?
