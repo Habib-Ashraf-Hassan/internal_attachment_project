@@ -29,7 +29,7 @@ if (isset($_SESSION['admin_id']) &&
      ?>
      <div class="container mt-5">
         
-           <form action="student-view-r.php" 
+           <form action="student-search-r.php" 
                  class="mt-3 n-table"
                  method="get">
              <div class="input-group mb-3">

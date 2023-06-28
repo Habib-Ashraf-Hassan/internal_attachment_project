@@ -81,6 +81,9 @@ if (isset($_SESSION['admin_id']) &&
                         <i class="fa fa-search" 
                            aria-hidden="true"></i>
                 </button>
+                &nbsp;
+                <a href="results.php"
+                class="btn btn-dark">Go Back</a>
              </div>
            </form>
 
