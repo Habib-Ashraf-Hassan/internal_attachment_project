@@ -119,7 +119,7 @@ if (isset($_SESSION['admin_id']) &&
              <div class="alert alert-info .w-450 m-5" 
                   role="alert">
                     No Results Found for that particular class!
-                 <a href="results.php"
+                 <a href="student-search-r.php"
                    class="btn btn-dark">Go Back</a>
               </div>
          <?php } ?>
