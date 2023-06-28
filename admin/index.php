@@ -41,9 +41,9 @@ if (isset($_SESSION['admin_id']) &&
                  <i class="fa fa-cubes fs-1" aria-hidden="true"></i><br>
                   Classes
                </a>  
-               <a href="" class="col btn btn-dark m-2 py-3">
+               <a href="results.php" class="col btn btn-dark m-2 py-3">
                  <i class="fa fa-columns fs-1" aria-hidden="true"></i><br>
-                  Timetable
+                  Results
                </a> 
                <a href="course.php" class="col btn btn-dark m-2 py-3">
                  <i class="fa fa-book fs-1" aria-hidden="true"></i><br>

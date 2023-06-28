@@ -30,7 +30,7 @@
             </li>
 
             <li class="nav-item">
-            <a class="nav-link" href="#contact">Timetable</a>
+            <a class="nav-link" href="results.php">Results</a>
             </li>
 
             <li class="nav-item">
