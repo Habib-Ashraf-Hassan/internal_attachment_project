@@ -69,7 +69,7 @@ if (isset($_SESSION['admin_id']) &&
      </div>
      <?php 
         }else {
-          header("Location: teacher.php");
+          header("Location: results.php");
           exit;
         }
      ?>

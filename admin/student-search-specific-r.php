@@ -43,7 +43,7 @@ if (isset($_SESSION['admin_id']) &&
                            aria-hidden="true"></i>
                 </button>
                 &nbsp;
-                <a href="student-search-specific-r.php"
+                <a href="student-search-r-class.php"
                 class="btn btn-dark">Go Back</a>
              </div>
            </form>
