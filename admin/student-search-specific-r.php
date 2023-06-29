@@ -89,7 +89,15 @@ if (isset($_SESSION['admin_id']) &&
                       </a>
                     </td>
                     <td><?=$student['adm_number']?></td>
-                    <td><?=$student['class_id']?></td>
+                    <td>
+                    <?php
+                      $grade_id = $student['class_id'];
+                      $g = "";
+                      $grade = getGradeById($grade_id, $conn);
+                      $g = $grade['grade_code']."-".$grade['grade'];
+                      echo $g;
+                      ?>
+                    </td>
                     <td>
                     <?=$student['year']?>
                     </td>

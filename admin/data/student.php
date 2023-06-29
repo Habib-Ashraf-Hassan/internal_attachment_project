@@ -97,7 +97,7 @@ function searchStudents($key, $conn){
 function searchStudentsResults($key, $conn){
   $key = preg_replace('/(?<!\\\)([%_])/', '\\\$1',$key);
   $sql = "SELECT * FROM student_results
-          WHERE grade LIKE ? 
+          WHERE class_id LIKE ? 
           OR fname LIKE ?
           OR adm_number LIKE ?";
   $stmt = $conn->prepare($sql);
