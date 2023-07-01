@@ -14,6 +14,8 @@ if (isset($_SESSION['r_user_id']) &&
        $previous_year = $current_year - 1;
        $previous_previous_year = $previous_year - 1;
        $current_year_stats = getStatsbyYear($current_year, $conn);
+       $previous_year_stats = getStatsbyYear($previous_year, $conn);
+       $previous_previous_year_stats = getStatsbyYear($previous_previous_year, $conn);
        
  ?>
 <!DOCTYPE html>
@@ -120,6 +122,112 @@ if (isset($_SESSION['r_user_id']) &&
                     <td><?=$c_stats['female_students']?></td>
                     <td><?=$c_stats['male_registrars']?></td>
                     <td><?=$c_stats['female_registrars']?></td>
+                  </tr>
+                <?php } ?>
+                </tbody>
+              </table>
+        </div>
+        <?php } else{ ?>
+          <div class="alert alert-info .w-450 m-5" 
+                  role="alert">
+                Empty!
+              </div>
+        <?php } ?>
+
+     </div>
+
+     <div class="container mt-5">
+      <h3>Stats for <?=$previous_year?></h3>
+        <?php if($previous_year_stats != 0){
+
+            
+        ?>
+        <div class="table-responsive">
+          <table class="table table-bordered mt-3 n-table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Total Teachers</th>
+                    <th scope="col">Total Students</th>
+                    <th scope="col">Total Registrars</th>
+                    <th scope="col">Male teachers</th>
+                    <th scope="col">Female teachers</th>
+                    <th scope="col">Male students</th>
+                    <th scope="col">Female students</th>
+                    <th scope="col">Male Registrars</th>
+                    <th scope="col">Female Registrars</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php $i = 0; foreach ($previous_year_stats as $p_stats) { 
+                    $i++;  ?>
+                  <tr>
+                    <th scope="row"><?=$i?></th>
+                    <td><?=$p_stats['total_teachers']?></td>
+                    <td>
+                        <?=$p_stats['total_students']?>
+                      </a>
+                    </td>
+                    <td><?=$p_stats['total_registrars']?></td>
+                    <td><?=$p_stats['male_teachers']?></td>
+                    <td><?=$p_stats['female_teachers']?></td>
+                    <td><?=$p_stats['male_students']?></td>
+                    <td><?=$p_stats['female_students']?></td>
+                    <td><?=$p_stats['male_registrars']?></td>
+                    <td><?=$p_stats['female_registrars']?></td>
+                  </tr>
+                <?php } ?>
+                </tbody>
+              </table>
+        </div>
+        <?php } else{ ?>
+          <div class="alert alert-info .w-450 m-5" 
+                  role="alert">
+                Empty!
+              </div>
+        <?php } ?>
+
+     </div>
+
+     <div class="container mt-5">
+      <h3>Stats for <?=$previous_previous_year?></h3>
+        <?php if($previous_previous_year_stats != 0){
+
+            
+        ?>
+        <div class="table-responsive">
+          <table class="table table-bordered mt-3 n-table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Total Teachers</th>
+                    <th scope="col">Total Students</th>
+                    <th scope="col">Total Registrars</th>
+                    <th scope="col">Male teachers</th>
+                    <th scope="col">Female teachers</th>
+                    <th scope="col">Male students</th>
+                    <th scope="col">Female students</th>
+                    <th scope="col">Male Registrars</th>
+                    <th scope="col">Female Registrars</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php $i = 0; foreach ($previous_previous_year_stats as $pp_stats) { 
+                    $i++;  ?>
+                  <tr>
+                    <th scope="row"><?=$i?></th>
+                    <td><?=$pp_stats['total_teachers']?></td>
+                    <td>
+                        <?=$pp_stats['total_students']?>
+                      </a>
+                    </td>
+                    <td><?=$pp_stats['total_registrars']?></td>
+                    <td><?=$pp_stats['male_teachers']?></td>
+                    <td><?=$pp_stats['female_teachers']?></td>
+                    <td><?=$pp_stats['male_students']?></td>
+                    <td><?=$pp_stats['female_students']?></td>
+                    <td><?=$pp_stats['male_registrars']?></td>
+                    <td><?=$pp_stats['female_registrars']?></td>
                   </tr>
                 <?php } ?>
                 </tbody>
