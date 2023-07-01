@@ -35,9 +35,15 @@ if (isset($_SESSION['r_user_id']) &&
 <body>
     <?php 
         include "inc/navbar.php";
+        
         if ($students != 0) {
      ?>
      <div class="container mt-5">
+      <a href="index.php"
+          class="btn btn-dark">Go Back</a>
+          <br>
+          <br>
+          <br>
         <h3>General Stats</h3>
            
            <div class="table-responsive">
