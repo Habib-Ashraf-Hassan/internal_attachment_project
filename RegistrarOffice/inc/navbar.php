@@ -22,7 +22,7 @@
             </li>
 
             <li class="nav-item">
-            <a class="nav-link" href="">Timetable</a>
+            <a class="nav-link" href="stats.php">Statistics</a>
             </li>
 
             <li class="nav-item">
