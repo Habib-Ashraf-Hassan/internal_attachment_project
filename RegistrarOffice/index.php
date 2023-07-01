@@ -71,9 +71,9 @@ if (isset($_SESSION['r_user_id']) &&
                </a>
                <br>
                
-               <a href="" class="col btn btn-dark m-2 py-3 col-5">
+               <a href="stats.php" class="col btn btn-dark m-2 py-3 col-5">
                  <i class="fa fa-columns fs-1" aria-hidden="true"></i><br>
-                  Timetable
+                  Statistics
                </a> 
                
                <a href="pass.php" class="col btn btn-info m-2 py-3 col-5">
