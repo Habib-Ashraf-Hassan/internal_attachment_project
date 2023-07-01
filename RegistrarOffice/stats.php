@@ -9,6 +9,11 @@ if (isset($_SESSION['r_user_id']) &&
        include "data/stats.php";
        include "data/setting.php";
        $students = getAllstats($conn);
+       $settings = getSetting($conn);
+       $current_year = $settings['current_year'];
+       $previous_year = $current_year - 1;
+       $previous_previous_year = $previous_year - 1;
+       $current_year_stats = getStatsbyYear($current_year, $conn);
        
  ?>
 <!DOCTYPE html>
@@ -29,7 +34,7 @@ if (isset($_SESSION['r_user_id']) &&
         if ($students != 0) {
      ?>
      <div class="container mt-5">
-        
+        <h3>General Stats</h3>
            <?php if (isset($_GET['error'])) { ?>
             <div class="alert alert-danger mt-3 n-table" 
                  role="alert">
@@ -89,6 +94,59 @@ if (isset($_SESSION['r_user_id']) &&
               </div>
          <?php } ?>
      </div>
+     <div class="container mt-5">
+      <h3>Stats for <?=$current_year?></h3>
+        <?php if($current_year_stats != 0){
+
+            
+        ?>
+        <div class="table-responsive">
+          <table class="table table-bordered mt-3 n-table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Total Teachers</th>
+                    <th scope="col">Total Students</th>
+                    <th scope="col">Total Registrars</th>
+                    <th scope="col">Male teachers</th>
+                    <th scope="col">Female teachers</th>
+                    <th scope="col">Male students</th>
+                    <th scope="col">Female students</th>
+                    <th scope="col">Male Registrars</th>
+                    <th scope="col">Female Registrars</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php $i = 0; foreach ($current_year_stats as $c_stats) { 
+                    $i++;  ?>
+                  <tr>
+                    <th scope="row"><?=$i?></th>
+                    <td><?=$c_stats['total_teachers']?></td>
+                    <td>
+                        <?=$c_stats['total_students']?>
+                      </a>
+                    </td>
+                    <td><?=$c_stats['total_registrars']?></td>
+                    <td><?=$c_stats['male_teachers']?></td>
+                    <td><?=$c_stats['female_teachers']?></td>
+                    <td><?=$c_stats['male_students']?></td>
+                    <td><?=$c_stats['female_students']?></td>
+                    <td><?=$c_stats['male_registrars']?></td>
+                    <td><?=$c_stats['female_registrars']?></td>
+                  </tr>
+                <?php } ?>
+                </tbody>
+              </table>
+        </div>
+        <?php } else{ ?>
+          <div class="alert alert-info .w-450 m-5" 
+                  role="alert">
+                Empty!
+              </div>
+        <?php } ?>
+
+     </div>
+     
      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
