@@ -35,20 +35,7 @@ if (isset($_SESSION['r_user_id']) &&
      ?>
      <div class="container mt-5">
         <h3>General Stats</h3>
-           <?php if (isset($_GET['error'])) { ?>
-            <div class="alert alert-danger mt-3 n-table" 
-                 role="alert">
-              <?=$_GET['error']?>
-            </div>
-            <?php } ?>
-
-          <?php if (isset($_GET['success'])) { ?>
-            <div class="alert alert-info mt-3 n-table" 
-                 role="alert">
-              <?=$_GET['success']?>
-            </div>
-            <?php } ?>
-
+           
            <div class="table-responsive">
               <table class="table table-bordered mt-3 n-table">
                 <thead>
