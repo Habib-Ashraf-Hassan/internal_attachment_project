@@ -72,7 +72,7 @@ if (isset($_SESSION['r_user_id']) &&
                     <th scope="col">Username</th>
                     <th scope="col">Subject teaching</th>
                     <th scope="col">Class teaching</th>
-                    
+                    <th scope="col">Date joined</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -108,6 +108,9 @@ if (isset($_SESSION['r_user_id']) &&
                            }
                            echo $g;
                         ?>
+                    </td>
+                    <td>
+                    <?=$teacher['date_of_joined']?>
                     </td>
                     
                   </tr>

@@ -68,6 +68,8 @@ if (isset($_SESSION['r_user_id']) &&
                     <th scope="col">Parent/Guardian's Name</th>
                     <th scope="col">Admission No.</th>
                     <th scope="col">Class</th>
+                    <th scope="col">Date joined</th>
+
                     
                   </tr>
                 </thead>
@@ -93,6 +95,9 @@ if (isset($_SESSION['r_user_id']) &&
                                      $g_temp['grade'];
                             }
                         ?>
+                    </td>
+                    <td>
+                    <?=$student['date_of_joined']?>
                     </td>
                     
                   </tr>
