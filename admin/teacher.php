@@ -30,8 +30,8 @@ if (isset($_SESSION['admin_id']) &&
         if ($teachers != 0) {
      ?>
      <div class="container mt-5">
-        <a href="teacher-add.php"
-           class="btn btn-dark">Add New Teacher</a>
+        <!-- <a href="teacher-add.php"
+           class="btn btn-dark">Add New Teacher</a> -->
 
            <form action="teacher-search.php" 
                  class="mt-3 n-table"
