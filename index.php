@@ -11,6 +11,10 @@ if ($setting != 0) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Ashraf Mohammed Hassan">
+	<meta name="description" content="Web designed as a school management platform for Adan Madrassah, Islamic learning institute">
+	<meta name="keywords" content="School Management, Adan Madrassa, Islamic">
+
 	<title>Welcome to <?=$setting['school_name']?></title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
