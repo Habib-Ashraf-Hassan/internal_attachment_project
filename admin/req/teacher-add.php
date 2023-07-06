@@ -63,7 +63,7 @@ if (isset($_POST['fname']) &&
         $em  = "Employee number is required";
         header("Location: ../teacher-add.php?error=$em&$data");
         exit;
-    }else if (!natioanlIDIsUnique($lname, $conn)) {
+  }else if (!natioanlIDIsUnique($lname, $conn)) {
 		$em  = "National ID already exists! try another";
 		header("Location: ../teacher-add.php?error=$em&$data");
 		exit;

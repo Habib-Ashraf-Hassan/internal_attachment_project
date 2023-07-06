@@ -59,8 +59,20 @@ if (isset($_POST['fname']) &&
 		$em  = "Username is required";
 		header("Location: ../teacher-add.php?error=$em&$data");
 		exit;
-	}else if (!unameIsUnique($uname, $conn)) {
+	}else if (empty($employee_number)) {
+        $em  = "Employee number is required";
+        header("Location: ../teacher-add.php?error=$em&$data");
+        exit;
+    }else if (!unameIsUnique($uname, $conn)) {
 		$em  = "Username is taken! try another";
+		header("Location: ../teacher-add.php?error=$em&$data");
+		exit;
+	}else if (!natioanlIDIsUnique($lname, $conn)) {
+		$em  = "National ID already exists! try another";
+		header("Location: ../teacher-add.php?error=$em&$data");
+		exit;
+	}else if (!employeeNoIsUnique($employee_number, $conn)) {
+		$em  = "Employee number is taken! try another";
 		header("Location: ../teacher-add.php?error=$em&$data");
 		exit;
 	}else if (empty($pass)) {
@@ -69,10 +81,6 @@ if (isset($_POST['fname']) &&
 		exit;
 	}else if (empty($address)) {
         $em  = "Address is required";
-        header("Location: ../teacher-add.php?error=$em&$data");
-        exit;
-    }else if (empty($employee_number)) {
-        $em  = "Employee number is required";
         header("Location: ../teacher-add.php?error=$em&$data");
         exit;
     }else if (empty($phone_number)) {
