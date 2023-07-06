@@ -71,6 +71,33 @@ function unameIsUnique($uname, $conn, $student_id=0){
    
 }
 
+function admNOIsUnique($adm_no, $conn, $student_id=0){
+  $sql = "SELECT admission_number, student_id FROM students
+          WHERE admission_number=?";
+  $stmt = $conn->prepare($sql);
+  $stmt->execute([$adm_no]);
+  
+  if ($student_id == 0) {
+    if ($stmt->rowCount() >= 1) {
+      return 0;
+    }else {
+     return 1;
+    }
+  }else {
+   if ($stmt->rowCount() >= 1) {
+      $student = $stmt->fetch();
+      if ($student['student_id'] == $student_id) {
+        return 1;
+      }else {
+       return 0;
+     }
+    }else {
+     return 1;
+    }
+  }
+  
+}
+
 
 // Search 
 function searchStudents($key, $conn){

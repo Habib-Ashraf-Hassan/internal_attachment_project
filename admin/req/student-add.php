@@ -52,7 +52,12 @@ if (isset($_POST['fname']) &&
 		$em  = "Username is required";
 		header("Location: ../student-add.php?error=$em&$data");
 		exit;
-	}else if (!unameIsUnique($uname, $conn)) {
+	}else if (!admNOIsUnique($lname, $conn)) {
+		$em  = "Admission Number is taken! try another";
+		header("Location: ../student-add.php?error=$em&$data");
+		exit;
+	}
+    else if (!unameIsUnique($uname, $conn)) {
 		$em  = "Username is taken! try another";
 		header("Location: ../student-add.php?error=$em&$data");
 		exit;
