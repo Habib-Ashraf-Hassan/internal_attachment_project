@@ -67,9 +67,9 @@ if (isset($_SESSION['admin_id']) &&
                     <td><?=$r_user['username']?></td>
                     <td>
                         <a href="registrar-office-edit.php?r_user_id=<?=$r_user['r_user_id']?>"
-                           class="btn btn-warning">Edit</a>
-                        <a href="registrar-office-delete.php?r_user_id=<?=$r_user['r_user_id']?>"
-                           class="btn btn-danger">Delete</a>
+                          class="btn btn-warning">Edit</a>
+                        <a href="#" onclick="confirmDelete(<?=$r_user['r_user_id']?>)" 
+                          class="btn btn-danger">Delete</a>
                     </td>
                   </tr>
                 <?php } ?>
@@ -89,6 +89,18 @@ if (isset($_SESSION['admin_id']) &&
         $(document).ready(function(){
              $("#navLinks li:nth-child(4) a").addClass('active');
         });
+    </script>
+    <script>
+      function confirmDelete(userId) {
+        if (confirm("Are you sure you want to delete this registrar?")) {
+          // User clicked "OK" in the confirmation dialog
+          // Execute the deletion code by redirecting to registrar-office-delete.php with the r_user_id parameter
+          window.location.href = "registrar-office-delete.php?r_user_id=" + userId;
+        } else {
+          // User clicked "Cancel" in the confirmation dialog
+          // Do nothing or provide alternative action
+        }
+      }
     </script>
 
 </body>
