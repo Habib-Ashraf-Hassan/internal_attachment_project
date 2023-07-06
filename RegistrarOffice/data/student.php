@@ -113,7 +113,7 @@ function searchStudents($key, $conn){
    $stmt = $conn->prepare($sql);
    $stmt->execute([$key, $key, $key, $key, $key, $key, $key, $key]);
 
-   if ($stmt->rowCount() == 1) {
+   if ($stmt->rowCount() >= 1) {
      $students = $stmt->fetchAll();
      return $students;
    }else {

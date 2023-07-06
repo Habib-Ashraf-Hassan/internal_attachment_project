@@ -34,7 +34,7 @@ if (isset($_SESSION['r_user_id']) &&
         <a href="teacher-add.php"
            class="btn btn-dark">Add New Teacher</a>
 
-           <form action="teacher-search.php"
+           <!-- <form action="teacher-search.php"
                  method="get" 
                  class="mt-3 n-table">
              <div class="input-group mb-3">
@@ -48,7 +48,10 @@ if (isset($_SESSION['r_user_id']) &&
                            aria-hidden="true"></i>
                       </button>
              </div>
-           </form>
+           </form> -->
+           &nbsp;
+                <a href="teacher.php"
+                class="btn btn-dark">Go Back</a>
 
 
            <?php if (isset($_GET['error'])) { ?>
@@ -71,12 +74,12 @@ if (isset($_SESSION['r_user_id']) &&
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">ID</th>
-                    <th scope="col">First Name</th>
+                    <th scope="col">Full Name</th>
                     <th scope="col">National ID</th>
                     <th scope="col">Username</th>
-                    <th scope="col">Subject</th>
-                    <th scope="col">Grade</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Subject(s)</th>
+                    <th scope="col">Class(s)</th>
+                    <th scope="col">Date joined</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -115,10 +118,7 @@ if (isset($_SESSION['r_user_id']) &&
                         ?>
                     </td>
                     <td>
-                        <a href="teacher-edit.php?teacher_id=<?=$teacher['teacher_id']?>"
-                           class="btn btn-warning">Edit</a>
-                        <a href="teacher-delete.php?teacher_id=<?=$teacher['teacher_id']?>"
-                           class="btn btn-danger">Delete</a>
+                    <?=$teacher['date_of_joined']?>
                     </td>
                   </tr>
                 <?php } ?>

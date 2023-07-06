@@ -140,7 +140,7 @@ function searchTeachers($key, $conn){
    $stmt = $conn->prepare($sql);
    $stmt->execute([$key, $key, $key, $key, $key,$key, $key, $key, $key]);
 
-   if ($stmt->rowCount() == 1) {
+   if ($stmt->rowCount() >= 1) {
      $teachers = $stmt->fetchAll();
      return $teachers;
    }else {

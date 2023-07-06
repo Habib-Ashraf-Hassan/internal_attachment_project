@@ -32,7 +32,7 @@ if (isset($_SESSION['r_user_id']) &&
      <div class="container mt-5">
         <a href="student-add.php"
            class="btn btn-dark">Add New Student</a>
-           <form action="student-search.php" 
+           <!-- <form action="student-search.php" 
                  class="mt-3 n-table"
                  method="post">
              <div class="input-group mb-3">
@@ -45,7 +45,10 @@ if (isset($_SESSION['r_user_id']) &&
                            aria-hidden="true"></i>
                       </button>
              </div>
-           </form>
+           </form> -->
+           &nbsp;
+                <a href="student.php"
+                class="btn btn-dark">Go Back</a>
 
            <?php if (isset($_GET['error'])) { ?>
             <div class="alert alert-danger mt-3 n-table" 
@@ -67,11 +70,11 @@ if (isset($_SESSION['r_user_id']) &&
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">ID</th>
-                    <th scope="col">First Name</th>
+                    <th scope="col">Full Name</th>
                     <th scope="col">Parent/Guardian's Name</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Grade</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Admission Number</th>
+                    <th scope="col">Class</th>
+                    <th scope="col">Date joined</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -98,10 +101,7 @@ if (isset($_SESSION['r_user_id']) &&
                         ?>
                     </td>
                     <td>
-                        <a href="student-edit.php?student_id=<?=$student['student_id']?>"
-                           class="btn btn-warning">Edit</a>
-                        <a href="student-delete.php?student_id=<?=$student['student_id']?>"
-                           class="btn btn-danger">Delete</a>
+                    <?=$student['date_of_joined']?>
                     </td>
                   </tr>
                 <?php } ?>
