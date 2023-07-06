@@ -13,7 +13,15 @@ The Madrassah Management System is a comprehensive web application developed usi
 - **User-Friendly Interface**: The web application features a clean and intuitive interface built with HTML, CSS, and the Bootstrap framework. This ensures a user-friendly experience for all users, regardless of their technical expertise.
 
 ## Collaboration and Development
-This project was developed during the internal attachment at Jomo Kenyatta University of Agriculture by a team of five dedicated students. The collaboration involved careful planning, coordination, and effective utilization of various technologies and programming languages.
+This project was developed during the internal attachment at Jomo Kenyatta University of Agriculture by a team of the following dedicated students.
+| Name | Reg No | School |
+|------|--------|--------|
+|[Ashraf Mohammed](https://github.com/Habib-Ashraf-Hassan)| SCT211-0255/2021| J.K.U.A.T|
+|[Nelson Irungu](https://github.com/NelsonMungai)| SCT211-0002/2021| J.K.U.A.T|
+|[Yusin Adan](https://github.com/yusin888)| SCT211-0655/2021| J.K.U.A.T|
+
+
+The collaboration involved careful planning, coordination, and effective utilization of various technologies and programming languages.
 
 ## Contributing
 We welcome contributions to enhance the Madrassah Management System. If you identify any issues or have suggestions for improvements, please submit a pull request or open an issue in the GitHub repository.
