@@ -57,6 +57,60 @@ function unameIsUnique($uname, $conn, $teacher_id=0){
    
 }
 
+// Check if the username Unique
+function employeeNoIsUnique($emp_no, $conn, $teacher_id=0){
+  $sql = "SELECT employee_number, teacher_id FROM teachers
+          WHERE employee_number=?";
+  $stmt = $conn->prepare($sql);
+  $stmt->execute([$emp_no]);
+  
+  if ($teacher_id == 0) {
+    if ($stmt->rowCount() >= 1) {
+      return 0;
+    }else {
+     return 1;
+    }
+  }else {
+   if ($stmt->rowCount() >= 1) {
+      $teacher = $stmt->fetch();
+      if ($teacher['teacher_id'] == $teacher_id) {
+        return 1;
+      }else {
+       return 0;
+     }
+    }else {
+     return 1;
+    }
+  }
+  
+}
+function natioanlIDIsUnique($n_id, $conn, $teacher_id=0){
+  $sql = "SELECT national_id, teacher_id FROM teachers
+          WHERE national_id=?";
+  $stmt = $conn->prepare($sql);
+  $stmt->execute([$n_id]);
+  
+  if ($teacher_id == 0) {
+    if ($stmt->rowCount() >= 1) {
+      return 0;
+    }else {
+     return 1;
+    }
+  }else {
+   if ($stmt->rowCount() >= 1) {
+      $teacher = $stmt->fetch();
+      if ($teacher['teacher_id'] == $teacher_id) {
+        return 1;
+      }else {
+       return 0;
+     }
+    }else {
+     return 1;
+    }
+  }
+  
+}
+
 // DELETE
 function removeTeacher($id, $conn){
    $sql  = "DELETE FROM teachers
