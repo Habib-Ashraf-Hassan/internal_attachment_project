@@ -70,7 +70,7 @@ function unameIsUnique($uname, $conn, $student_id=0){
    }
    
 }
-
+// Check if the Admission number Unique
 function admNOIsUnique($adm_no, $conn, $student_id=0){
   $sql = "SELECT admission_number, student_id FROM students
           WHERE admission_number=?";
