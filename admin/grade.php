@@ -13,7 +13,7 @@ if (isset($_SESSION['admin_id']) &&
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Admin - Grade</title>
+	<title>Admin - Classes</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
 	<link rel="icon" href="../images/Madrassa_logo2.png">
@@ -64,9 +64,9 @@ if (isset($_SESSION['admin_id']) &&
                     </td>
                     <td>
                         <a href="grade-edit.php?grade_id=<?=$grade['grade_id']?>"
-                           class="btn btn-warning">Edit</a>
-                        <a href="grade-delete.php?grade_id=<?=$grade['grade_id']?>"
-                           class="btn btn-danger">Delete</a>
+                          class="btn btn-warning">Edit</a>
+                        <a href="#" onclick="confirmDelete(<?=$grade['grade_id']?>)" 
+                          class="btn btn-danger">Delete</a>
                     </td>
                   </tr>
                 <?php } ?>
@@ -86,6 +86,18 @@ if (isset($_SESSION['admin_id']) &&
         $(document).ready(function(){
              $("#navLinks li:nth-child(5) a").addClass('active');
         });
+    </script>
+    <script>
+      function confirmDelete(gradeId) {
+        if (confirm("Are you sure you want to delete this grade?")) {
+          // User clicked "OK" in the confirmation dialog
+          // Execute the deletion code by redirecting to grade-delete.php with the grade_id parameter
+          window.location.href = "grade-delete.php?grade_id=" + gradeId;
+        } else {
+          // User clicked "Cancel" in the confirmation dialog
+          // Do nothing or provide alternative action
+        }
+      }
     </script>
 
 </body>
