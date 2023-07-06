@@ -52,7 +52,12 @@ if (isset($_POST['fname']) &&
 		$em  = "Username is required";
 		header("Location: ../student-add.php?error=$em&$data");
 		exit;
-	}else if (!unameIsUnique($uname, $conn)) {
+	}else if (!admNOIsUnique($lname, $conn)) {
+		$em  = "Admission Number is taken! try another";
+		header("Location: ../student-add.php?error=$em&$data");
+		exit;
+	}
+    else if (!unameIsUnique($uname, $conn)) {
 		$em  = "Username is taken! try another";
 		header("Location: ../student-add.php?error=$em&$data");
 		exit;
@@ -93,7 +98,7 @@ if (isset($_POST['fname']) &&
             $subjects = "1234";
         }
         else if ($grade == 5 || $grade == 6 || $grade == 7){
-            $subjects = "1256";
+            $subjects = "123456";
         }
         else if ($grade == 8 || $grade == 9){
             $subjects = "125678";
