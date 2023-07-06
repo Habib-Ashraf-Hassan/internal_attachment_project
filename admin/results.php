@@ -42,7 +42,10 @@ if (isset($_SESSION['admin_id']) &&
                     <option value="previous_year">Previous year</option>
                     
                 </select> -->
-                <label class="form-label">Enter Year</label>
+                <br>
+                <label class="form-label"><b>Enter Year</b></label>
+                &nbsp;
+                &nbsp;
                 <input type="number" 
                  class="form-control"
                  min="2020" max="2040" value="2021"

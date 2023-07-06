@@ -19,9 +19,9 @@ function gradeCalc($grade){
    $g = "";
    if ($grade >= 90) {
        $g = "A+";
-   }else if ($grade >= 80) {
+   }else if ($grade >= 80){
        $g = "A";
-   }else if ($grade >= 75) {
+   }else if ($grade >= 75){
        $g = "A-";
    }else if ($grade >= 70) {
        $g = "B+";
