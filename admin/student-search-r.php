@@ -14,28 +14,29 @@ if (isset($_SESSION['admin_id']) &&
        include "data/setting.php";
        $settings = getSetting($conn);
        $current_year = $settings['current_year'];
+       $duration = $_GET['searchKey'];
        
-       
+       $students = getAllresultsByYear($duration, $conn);
       // $previous_year = date('Y', strtotime($current_year . ' -1 year'));
-      $previous_year = $current_year - 1;
+      // $previous_year = $current_year - 1;
 
-       $current_semester = $settings['current_semester'];
-       $previous_semester = getPreviousSemester($current_semester);
-       if ($search_key == "current_year"){
-        $students = getAllresultsByYear($current_year, $conn);
-       }
-       else if ($search_key == "current_year_current_semester"){
-        $students = getAllresultsByYearandSemester($current_year, $current_semester, $conn);
-       }
-       else if ($search_key == "current_year_previous_semester"){
-        $students = getAllresultsByYearandSemester($current_year, $previous_semester, $conn);
-       }
-       else if ($search_key == "previous_year"){
-        $students = getAllresultsByYear($previous_year, $conn);
-       }
-       else{
-        $students = 0;
-       }
+      //  $current_semester = $settings['current_semester'];
+      //  $previous_semester = getPreviousSemester($current_semester);
+      //  if ($search_key == "current_year"){
+      //   $students = getAllresultsByYear($current_year, $conn);
+      //  }
+      //  else if ($search_key == "current_year_current_semester"){
+      //   $students = getAllresultsByYearandSemester($current_year, $current_semester, $conn);
+      //  }
+      //  else if ($search_key == "current_year_previous_semester"){
+      //   $students = getAllresultsByYearandSemester($current_year, $previous_semester, $conn);
+      //  }
+      //  else if ($search_key == "previous_year"){
+      //   $students = getAllresultsByYear($previous_year, $conn);
+      //  }
+      //  else{
+      //   $students = 0;
+      //  }
 
 
        

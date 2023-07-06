@@ -34,14 +34,19 @@ if (isset($_SESSION['admin_id']) &&
                  method="get">
              <div class="input-group mb-3">
                 
-                <select class="form-control" name="searchKey"
+                <!-- <select class="form-control" name="searchKey"
                     placeholder="Search by duration...">
                     <option value="current_year">Current year</option>
                     <option value="current_year_current_semester">Current year, Current term</option>
                     <option value="current_year_previous_semester">Current year, previous term</option>
                     <option value="previous_year">Previous year</option>
                     
-                </select>
+                </select> -->
+                <label class="form-label">Enter Year</label>
+                <input type="number" 
+                 class="form-control"
+                 min="2020" max="2040" value="2021"
+                 name="searchKey">
                 <button class="btn btn-primary">
                         <i class="fa fa-search" 
                            aria-hidden="true"></i>
