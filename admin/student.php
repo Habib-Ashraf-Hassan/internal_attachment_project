@@ -96,9 +96,10 @@ if (isset($_SESSION['admin_id']) &&
                     </td>
                     <td>
                         <a href="student-edit.php?student_id=<?=$student['student_id']?>"
-                           class="btn btn-warning">Edit</a>
-                        <a href="student-delete.php?student_id=<?=$student['student_id']?>"
-                           class="btn btn-danger">Delete</a>
+                          class="btn btn-warning">Edit</a>
+                        <a href="#" onclick="confirmDelete(<?=$student['student_id']?>)" 
+                          class="btn btn-danger">Delete</a>
+                        
                     </td>
                   </tr>
                 <?php } ?>
@@ -118,6 +119,18 @@ if (isset($_SESSION['admin_id']) &&
         $(document).ready(function(){
              $("#navLinks li:nth-child(3) a").addClass('active');
         });
+    </script>
+    <script>
+        function confirmDelete(studentId) {
+          if (confirm("Are you sure you want to delete this student?")) {
+            // User clicked "OK" in the confirmation dialog
+            // Execute the deletion code by redirecting to student-delete.php with the student_id parameter
+            window.location.href = "student-delete.php?student_id=" + studentId;
+          } else {
+            // User clicked "Cancel" in the confirmation dialog
+            // Do nothing or provide alternative action
+          }
+        }
     </script>
 
 </body>
