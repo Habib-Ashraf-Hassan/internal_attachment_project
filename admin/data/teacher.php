@@ -57,7 +57,7 @@ function unameIsUnique($uname, $conn, $teacher_id=0){
    
 }
 
-// Check if the username Unique
+// Check if the Employee number Unique
 function employeeNoIsUnique($emp_no, $conn, $teacher_id=0){
   $sql = "SELECT employee_number, teacher_id FROM teachers
           WHERE employee_number=?";
@@ -84,6 +84,7 @@ function employeeNoIsUnique($emp_no, $conn, $teacher_id=0){
   }
   
 }
+// Check if national ID is unique
 function natioanlIDIsUnique($n_id, $conn, $teacher_id=0){
   $sql = "SELECT national_id, teacher_id FROM teachers
           WHERE national_id=?";
