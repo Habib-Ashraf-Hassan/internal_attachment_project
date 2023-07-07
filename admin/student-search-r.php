@@ -64,8 +64,12 @@ if (isset($_SESSION['admin_id']) &&
                  class="mt-3 n-table"
                  method="get">
              <div class="input-group mb-3">
+                <input type="text"
+                    value="<?=$duration?>"
+                    name="searchKeyDuration"
+                    hidden>
                 <select class="form-control" name="searchKey"
-                    placeholder="Search by duration...">
+                    placeholder="Search by class...">
                     <option value= 1>RWDH-1 </option>
                     <option value= 2>FSL-1</option>
                     <option value= 3>FSL-2</option>

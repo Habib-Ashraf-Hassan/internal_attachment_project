@@ -4,9 +4,10 @@ if (isset($_SESSION['admin_id']) &&
     isset($_SESSION['role'])) {
 
     if ($_SESSION['role'] == 'Admin') {
-       if (isset($_GET['searchKey'])) {
+       if (isset($_GET['searchKey']) && isset($_GET['searchKeyDuration'])) {
 
        $search_key = $_GET['searchKey'];
+       $search_key_duration = $_GET['searchKeyDuration'];
        include "../DB_connection.php";
        include "data/student.php";
        include "data/grade.php";
@@ -16,7 +17,8 @@ if (isset($_SESSION['admin_id']) &&
        $current_year = $settings['current_year'];
        $current_semester = $settings['current_semester'];
        $previous_semester = getPreviousSemester($current_semester);
-       $students = getAllresultsByClass($search_key, $conn);
+      //  $students = getAllresultsByClass($search_key, $conn);
+      $students = getAllresultsByClassandYear($search_key, $search_key_duration, $conn);
 
 
        
